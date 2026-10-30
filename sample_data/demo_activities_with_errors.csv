@@ -1,0 +1,11 @@
+activity_date,category,activity_name,quantity,unit,source_reference,provenance,notes
+2026-03-15,purchased_electricity,Grid electricity,8000,kWh,DEMO-BILL-004,synthetic_demo,VALID row
+2026-13-45,purchased_electricity,Grid electricity,9000,kWh,DEMO-BAD-01,synthetic_demo,ERROR: invalid date
+2026-03-16,purchased_electricity,Grid electricity,abc,kWh,DEMO-BAD-02,synthetic_demo,ERROR: non-numeric quantity
+2026-03-17,purchased_electricity,Grid electricity,9000,gallons,DEMO-BAD-03,synthetic_demo,ERROR: unknown unit
+2026-03-18,steam_misc,Mystery steam,50,t,DEMO-BAD-04,synthetic_demo,ERROR: unknown category
+2026-03-19,diesel,Generator diesel,-5,L,DEMO-BAD-05,synthetic_demo,ERROR: negative quantity
+2026-03-20,purchased_electricity,Grid electricity,"12,500",kWh,DEMO-BAD-06,synthetic_demo,ERROR: comma in quantity
+2027-01-05,purchased_electricity,Grid electricity,9000,kWh,DEMO-BAD-07,synthetic_demo,ERROR: outside period
+2026-03-21,diesel,Generator diesel,300,L,DEMO-DSL-004,synthetic_demo,VALID row
+2026-03-21,diesel,Generator diesel,300,L,DEMO-DSL-004,synthetic_demo,ERROR: duplicate of previous row

@@ -1,0 +1,20 @@
+# Environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+# Local databases (may hold non-demo factory data)
+*.db
+*.sqlite
+*.sqlite3
+# Secrets
+.env
+*.key
+secrets.toml
+# Temporary exports and local artifacts
+exports/
+tmp/
+.DS_Store
+.streamlit/secrets.toml

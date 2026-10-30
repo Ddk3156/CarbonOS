@@ -1,0 +1,9 @@
+activity_date,category,activity_name,quantity,unit,source_reference,provenance,notes
+2026-01-01,purchased_electricity,Grid electricity,12500,kWh,DEMO-BILL-001,synthetic_demo,Fictional demonstration record
+2026-02-01,purchased_electricity,Grid electricity,13100,kWh,DEMO-BILL-002,synthetic_demo,Fictional demonstration record
+2026-03-01,purchased_electricity,Grid electricity,20400,kWh,DEMO-BILL-003,synthetic_demo,Fictional demonstration record (deliberately high month to demonstrate an outlier flag)
+2026-01-15,diesel,Generator diesel,800,L,DEMO-DSL-001,synthetic_demo,Fictional demonstration record
+2026-02-12,diesel,Generator diesel,750,L,DEMO-DSL-002,synthetic_demo,Fictional demonstration record
+2026-03-10,diesel,Generator diesel,0.9,kL,DEMO-DSL-003,synthetic_demo,"Fictional demonstration record (kL on purpose, to demonstrate a recorded unit conversion)"
+2026-02-20,other_fossil_fuels,Coal for boiler start-up (fictional),12,t,DEMO-FUEL-001,synthetic_demo,"Fictional demonstration record (no factor in the library on purpose, so it stays unresolved)"
+2026-02-28,bagasse_combustion,Bagasse burned in boiler (fictional),1800,t,DEMO-BAG-001,synthetic_demo,Fictional demonstration record (bagasse is not assessed in the MVP)
