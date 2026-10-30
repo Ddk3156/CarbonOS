@@ -25,7 +25,7 @@ back to its record, factor, formula, units and provenance.
 * CSV exports, Markdown report and ZIP bundle built from the stored snapshot
 
 ## Stack
-Python 3.10+ · Streamlit · SQLite · pandas · pytest
+Python 3.10+ · Streamlit · SQLite · pandas · pytest (tested with Python 3.12, Streamlit 1.66.1, pandas 3.0–3.1)
 
 ## Install and run
 ```bash
