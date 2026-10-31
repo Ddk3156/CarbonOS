@@ -1,0 +1,1846 @@
+{
+  "ok": true,
+  "ready": true,
+  "sample_previews": {
+    "ok": {
+      "ok": true,
+      "filename": "demo_activities.csv",
+      "header_errors": [],
+      "ignored_columns": [],
+      "rows": [
+        {
+          "row_number": 2,
+          "raw": {
+            "activity_date": "2026-01-01",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "12500",
+            "unit": "kWh",
+            "source_reference": "DEMO-BILL-001",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #4."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 3,
+          "raw": {
+            "activity_date": "2026-02-01",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "13100",
+            "unit": "kWh",
+            "source_reference": "DEMO-BILL-002",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #5."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 4,
+          "raw": {
+            "activity_date": "2026-03-01",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "20400",
+            "unit": "kWh",
+            "source_reference": "DEMO-BILL-003",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record (deliberately high month to demonstrate an outlier flag)"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #6."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 5,
+          "raw": {
+            "activity_date": "2026-01-15",
+            "category": "diesel",
+            "activity_name": "Generator diesel",
+            "quantity": "800",
+            "unit": "L",
+            "source_reference": "DEMO-DSL-001",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #7."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 6,
+          "raw": {
+            "activity_date": "2026-02-12",
+            "category": "diesel",
+            "activity_name": "Generator diesel",
+            "quantity": "750",
+            "unit": "L",
+            "source_reference": "DEMO-DSL-002",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #8."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 7,
+          "raw": {
+            "activity_date": "2026-03-10",
+            "category": "diesel",
+            "activity_name": "Generator diesel",
+            "quantity": "0.9",
+            "unit": "kL",
+            "source_reference": "DEMO-DSL-003",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record (kL on purpose, to demonstrate a recorded unit conversion)"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #9."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 8,
+          "raw": {
+            "activity_date": "2026-02-20",
+            "category": "other_fossil_fuels",
+            "activity_name": "Coal for boiler start-up (fictional)",
+            "quantity": "12",
+            "unit": "t",
+            "source_reference": "DEMO-FUEL-001",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record (no factor in the library on purpose, so it stays unresolved)"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #10."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 9,
+          "raw": {
+            "activity_date": "2026-02-28",
+            "category": "bagasse_combustion",
+            "activity_name": "Bagasse burned in boiler (fictional)",
+            "quantity": "1800",
+            "unit": "t",
+            "source_reference": "DEMO-BAG-001",
+            "provenance": "synthetic_demo",
+            "notes": "Fictional demonstration record (bagasse is not assessed in the MVP)"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of existing activity record #11."
+          ],
+          "status": "rejected"
+        }
+      ],
+      "n_rows": 8,
+      "n_valid": 0,
+      "n_rejected": 8
+    },
+    "err": {
+      "ok": true,
+      "filename": "demo_activities_with_errors.csv",
+      "header_errors": [],
+      "ignored_columns": [],
+      "rows": [
+        {
+          "row_number": 2,
+          "raw": {
+            "activity_date": "2026-03-15",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "8000",
+            "unit": "kWh",
+            "source_reference": "DEMO-BILL-004",
+            "provenance": "synthetic_demo",
+            "notes": "VALID row"
+          },
+          "record": {
+            "activity_date": "2026-03-15",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": 8000.0,
+            "unit": "kWh",
+            "provenance": "synthetic_demo",
+            "source_reference": "DEMO-BILL-004",
+            "source_row_reference": "demo_activities_with_errors.csv:line 2",
+            "notes": "VALID row",
+            "status": "valid"
+          },
+          "errors": [],
+          "status": "valid"
+        },
+        {
+          "row_number": 3,
+          "raw": {
+            "activity_date": "2026-13-45",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "9000",
+            "unit": "kWh",
+            "source_reference": "DEMO-BAD-01",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: invalid date"
+          },
+          "record": null,
+          "errors": [
+            "Activity date '2026-13-45' is not a valid YYYY-MM-DD date."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 4,
+          "raw": {
+            "activity_date": "2026-03-16",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "abc",
+            "unit": "kWh",
+            "source_reference": "DEMO-BAD-02",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: non-numeric quantity"
+          },
+          "record": null,
+          "errors": [
+            "Quantity 'abc' is not a number."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 5,
+          "raw": {
+            "activity_date": "2026-03-17",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "9000",
+            "unit": "gallons",
+            "source_reference": "DEMO-BAD-03",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: unknown unit"
+          },
+          "record": null,
+          "errors": [
+            "Unit 'gallons' is not recognised. Valid: kWh, MWh, GJ, L, kL, m3, kg, t, tkm, kg_COD."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 6,
+          "raw": {
+            "activity_date": "2026-03-18",
+            "category": "steam_misc",
+            "activity_name": "Mystery steam",
+            "quantity": "50",
+            "unit": "t",
+            "source_reference": "DEMO-BAD-04",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: unknown category"
+          },
+          "record": null,
+          "errors": [
+            "Unknown category 'steam_misc'. Valid: purchased_electricity, diesel, other_fossil_fuels, bagasse_combustion, purchased_steam_energy, cane_transport, wastewater_effluent, refrigerants, other_sources."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 7,
+          "raw": {
+            "activity_date": "2026-03-19",
+            "category": "diesel",
+            "activity_name": "Generator diesel",
+            "quantity": "-5",
+            "unit": "L",
+            "source_reference": "DEMO-BAD-05",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: negative quantity"
+          },
+          "record": null,
+          "errors": [
+            "Negative quantities are rejected for all supported categories."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 8,
+          "raw": {
+            "activity_date": "2026-03-20",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "12,500",
+            "unit": "kWh",
+            "source_reference": "DEMO-BAD-06",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: comma in quantity"
+          },
+          "record": null,
+          "errors": [
+            "Quantity contains a comma. Use a plain number without thousands separators (e.g. 12500 or 12500.5)."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 9,
+          "raw": {
+            "activity_date": "2027-01-05",
+            "category": "purchased_electricity",
+            "activity_name": "Grid electricity",
+            "quantity": "9000",
+            "unit": "kWh",
+            "source_reference": "DEMO-BAD-07",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: outside period"
+          },
+          "record": null,
+          "errors": [
+            "Activity date 2027-01-05 is outside the reporting period 2026-01-01 to 2026-03-31."
+          ],
+          "status": "rejected"
+        },
+        {
+          "row_number": 10,
+          "raw": {
+            "activity_date": "2026-03-21",
+            "category": "diesel",
+            "activity_name": "Generator diesel",
+            "quantity": "300",
+            "unit": "L",
+            "source_reference": "DEMO-DSL-004",
+            "provenance": "synthetic_demo",
+            "notes": "VALID row"
+          },
+          "record": {
+            "activity_date": "2026-03-21",
+            "category": "diesel",
+            "activity_name": "Generator diesel",
+            "quantity": 300.0,
+            "unit": "L",
+            "provenance": "synthetic_demo",
+            "source_reference": "DEMO-DSL-004",
+            "source_row_reference": "demo_activities_with_errors.csv:line 10",
+            "notes": "VALID row",
+            "status": "valid"
+          },
+          "errors": [],
+          "status": "valid"
+        },
+        {
+          "row_number": 11,
+          "raw": {
+            "activity_date": "2026-03-21",
+            "category": "diesel",
+            "activity_name": "Generator diesel",
+            "quantity": "300",
+            "unit": "L",
+            "source_reference": "DEMO-DSL-004",
+            "provenance": "synthetic_demo",
+            "notes": "ERROR: duplicate of previous row"
+          },
+          "record": null,
+          "errors": [
+            "Duplicate of line 10 in this file."
+          ],
+          "status": "rejected"
+        }
+      ],
+      "n_rows": 10,
+      "n_valid": 2,
+      "n_rejected": 8
+    }
+  },
+  "pitch": {
+    "currency": "INR",
+    "pilotAmountInr": 60000,
+    "previousDeckAmountInr": 30000,
+    "timelineDays": 45,
+    "reconcileNote": "The research deck listed Rs 30,000 for the pilot. This pitch uses Rs 60,000. Edit this file before presenting; do not change the number in the UI.",
+    "whyPilot": "The calculation engine, CSV contract, reverse trace, and honesty rules already exist and are covered by tests. A pilot is to validate them against one mill's real bills and attested factors \u2014 not to invent a new total.",
+    "unlocks": [
+      "One mill field validation using their electricity and fuel bills (this demo stays fictional).",
+      "Operator walkthrough of reverse trace: every assessed number back to its source record.",
+      "Replace illustrative demo factors with mill-sourced, attested factors. Starting points named in METHODOLOGY.md (CEA, TERI, GHG Protocol) are not bundled values.",
+      "Keep the existing Python engine; the 45 days are for validation and factor attestation, not rewriting arithmetic."
+    ],
+    "timeline": [
+      {
+        "days": "1\u201310",
+        "label": "Ingest mill bills into the existing CSV contract; record gaps as unresolved, never zero."
+      },
+      {
+        "days": "11\u201330",
+        "label": "Source and attest factors with organisation, document, year, geography; keep illustrative factors blocked in real-reporting mode."
+      },
+      {
+        "days": "31\u201345",
+        "label": "Reproduce totals from stored snapshots, export the bundle, and write what is still not assessed (bagasse, wastewater, Scope 3)."
+      }
+    ],
+    "validated": [
+      "Exact-decimal quantity \u00d7 factor with recorded unit conversions only",
+      "Missing data and missing factors never become zero",
+      "Partial totals labelled Partial",
+      "Immutable calculation snapshots and reverse recompute check",
+      "CSV import with row-level rejections, nothing dropped silently"
+    ],
+    "notValidated": [
+      "Not validated in an operating mill; no partner mill in this prototype",
+      "Not independently verified or certified",
+      "No real emission factors are bundled",
+      "Bagasse/biogenic, wastewater, stage allocation, product footprints, Scope 3 are not implemented",
+      "Audit history is an ordinary SQLite table, not tamper-proof"
+    ]
+  },
+  "synthetic_label": "SYNTHETIC DEMONSTRATION \u2014 fictional activity data and illustrative factor. Not suitable for real factory reporting.",
+  "engine_version": "0.1.0",
+  "categories": {
+    "purchased_electricity": {
+      "label": "Purchased electricity",
+      "units": [
+        "kWh",
+        "MWh"
+      ],
+      "method": true,
+      "note": "Factory-level grid electricity. Not allocated to process stages."
+    },
+    "diesel": {
+      "label": "Diesel combustion",
+      "units": [
+        "L",
+        "kL"
+      ],
+      "method": true,
+      "note": "Calculates only if a diesel factor has been entered in the factor library."
+    },
+    "other_fossil_fuels": {
+      "label": "Other fossil fuels",
+      "units": [
+        "L",
+        "kL",
+        "kg",
+        "t",
+        "m3"
+      ],
+      "method": true,
+      "note": "Calculates only where a factor with a compatible unit is documented."
+    },
+    "bagasse_combustion": {
+      "label": "Bagasse combustion",
+      "units": [
+        "kg",
+        "t"
+      ],
+      "method": false,
+      "note": "Not assessed in the MVP: biogenic CO2 and non-CO2 (CH4/N2O) treatment is not implemented. Bagasse is never added to the fossil total."
+    },
+    "purchased_steam_energy": {
+      "label": "Purchased steam or other energy",
+      "units": [
+        "t",
+        "kg",
+        "GJ",
+        "MWh",
+        "kWh"
+      ],
+      "method": true,
+      "note": "Calculates only with an appropriate documented factor."
+    },
+    "cane_transport": {
+      "label": "Cane transport",
+      "units": [
+        "tkm"
+      ],
+      "method": true,
+      "note": "Tonne-km records; calculates only if the boundary includes it and a factor exists."
+    },
+    "wastewater_effluent": {
+      "label": "Wastewater and effluent",
+      "units": [
+        "m3",
+        "kg_COD"
+      ],
+      "method": false,
+      "note": "Not assessed in the MVP: no treatment-emissions method implemented."
+    },
+    "refrigerants": {
+      "label": "Refrigerants",
+      "units": [
+        "kg"
+      ],
+      "method": true,
+      "note": "Calculates only with a documented factor (e.g. GWP-based kgCO2e/kg)."
+    },
+    "other_sources": {
+      "label": "Other sources",
+      "units": [
+        "kWh",
+        "MWh",
+        "GJ",
+        "L",
+        "kL",
+        "m3",
+        "kg",
+        "t",
+        "tkm",
+        "kg_COD"
+      ],
+      "method": false,
+      "note": "Recorded as unresolved until a method is supported."
+    }
+  },
+  "factory": {
+    "id": 1,
+    "name": "DEMO Sugar Mill (FICTIONAL)",
+    "location": "Fictional location \u2014 not a real facility",
+    "is_synthetic": 1,
+    "notes": "FICTIONAL demonstration factory. SYNTHETIC DEMONSTRATION \u2014 fictional activity data and illustrative factor. Not suitable for real factory reporting.",
+    "created_at": "2026-10-31T16:27:03.779688+00:00"
+  },
+  "period": {
+    "id": 2,
+    "factory_id": 1,
+    "start_date": "2026-01-01",
+    "end_date": "2026-03-31",
+    "boundary_description": "FICTIONAL demo boundary: factory-gate purchased electricity and diesel records only. Other categories are shown as not assessed.",
+    "cane_crushed_t": 5000.0,
+    "sugar_produced_t": 500.0,
+    "excluded_categories_json": "{}",
+    "data_source_notes": "FICTIONAL synthetic data.",
+    "created_at": "2026-10-31T16:27:03.779879+00:00",
+    "updated_at": "2026-10-31T16:27:03.779879+00:00"
+  },
+  "periods": [
+    {
+      "id": 2,
+      "factory_id": 1,
+      "start_date": "2026-01-01",
+      "end_date": "2026-03-31",
+      "boundary_description": "FICTIONAL demo boundary: factory-gate purchased electricity and diesel records only. Other categories are shown as not assessed.",
+      "cane_crushed_t": 5000.0,
+      "sugar_produced_t": 500.0,
+      "excluded_categories_json": "{}",
+      "data_source_notes": "FICTIONAL synthetic data.",
+      "created_at": "2026-10-31T16:27:03.779879+00:00",
+      "updated_at": "2026-10-31T16:27:03.779879+00:00"
+    },
+    {
+      "id": 1,
+      "factory_id": 1,
+      "start_date": "2025-10-01",
+      "end_date": "2025-12-31",
+      "boundary_description": "FICTIONAL demo boundary: factory-gate purchased electricity and diesel records only. Other categories are shown as not assessed.",
+      "cane_crushed_t": 5200.0,
+      "sugar_produced_t": 520.0,
+      "excluded_categories_json": "{}",
+      "data_source_notes": "FICTIONAL synthetic data.",
+      "created_at": "2026-10-31T16:27:03.779793+00:00",
+      "updated_at": "2026-10-31T16:27:03.779793+00:00"
+    }
+  ],
+  "snapshot": {
+    "id": 1,
+    "factory_id": 1,
+    "reporting_period_id": 2,
+    "created_at": "2026-10-31T16:27:03.782260+00:00",
+    "engine_version": "0.1.0",
+    "reporting_mode": "demo",
+    "inventory_status": "incomplete",
+    "assessed_total_kg_co2e": 38325.0,
+    "unresolved_count": 10,
+    "audit_watermark": 17,
+    "summary_json": "{\"anomalies\": [{\"activity_record_id\": 10, \"code\": \"FUEL_NO_FACTOR\", \"message\": \"Fuel record #10 (Coal for boiler start-up (fictional)) has no usable emission factor.\", \"severity\": \"high\", \"why_flagged\": \"Fuel use is recorded but no factor is available, so it contributes no calculated emissions.\"}, {\"activity_record_id\": 12, \"code\": \"MISSING_QUANTITY\", \"message\": \"Record #12 (Refrigerant top-up (quantity not yet available)) has no quantity.\", \"severity\": \"high\", \"why_flagged\": \"Missing activity data is not treated as zero; the record cannot be calculated.\"}, {\"activity_record_id\": null, \"code\": \"FACTOR_NOT_APPROVED\", \"message\": \"Factor EF-ELECTRICITY-DEMO-001 is marked 'illustrative' and was used by 3 record(s): #4, #5, #6.\", \"severity\": \"medium\", \"why_flagged\": \"Factors that are illustrative or need review are not approved for real reporting.\"}, {\"activity_record_id\": null, \"code\": \"FACTOR_NOT_APPROVED\", \"message\": \"Factor EF-DIESEL-DEMO-001 is marked 'illustrative' and was used by 3 record(s): #7, #8, #9.\", \"severity\": \"medium\", \"why_flagged\": \"Factors that are illustrative or need review are not approved for real reporting.\"}, {\"activity_record_id\": 6, \"code\": \"OUTLIER_VS_MEDIAN\", \"message\": \"Record #6 (Grid electricity, 2026-03-01) is 56% above the median of this period's purchased electricity records.\", \"severity\": \"medium\", \"why_flagged\": \"Compared with the median (13100 kWh) of 3 records; threshold \\u00b150%. This does not establish a fault.\"}, {\"activity_record_id\": null, \"change\": 0.44969696969696965, \"code\": \"INTENSITY_CHANGE\", \"message\": \"Electricity per tonne of cane crushed changed by +45% versus previous period 2025-10-01 to 2025-12-31 (6.346 \\u2192 9.2 kWh/t cane crushed).\", \"severity\": \"medium\", \"why_flagged\": \"Threshold \\u00b120%. Boundaries and production units are user-entered; confirm they are comparable before drawing conclusions.\"}, {\"activity_record_id\": null, \"change\": 0.44969696969696976, \"code\": \"INTENSITY_CHANGE\", \"message\": \"Electricity per tonne of sugar produced changed by +45% versus previous period 2025-10-01 to 2025-12-31 (63.46 \\u2192 92 kWh/t sugar produced).\", \"severity\": \"medium\", \"why_flagged\": \"Threshold \\u00b120%. Boundaries and production units are user-entered; confirm they are comparable before drawing conclusions.\"}], \"excluded_categories\": {}, \"factory\": {\"id\": 1, \"is_synthetic\": true, \"location\": \"Fictional location \\u2014 not a real facility\", \"name\": \"DEMO Sugar Mill (FICTIONAL)\"}, \"intensity\": [{\"denominator\": 5000.0, \"denominator_label\": \"t cane crushed\", \"key\": \"electricity_per_cane\", \"label\": \"Electricity per tonne of cane crushed\", \"numerator\": 46000.0, \"numerator_unit\": \"kWh\", \"provenance\": \"derived\", \"reason\": null, \"scope\": \"Factory-wide; not allocated to process stages\", \"synthetic\": true, \"unit\": \"kWh/t cane crushed\", \"value\": 9.2}, {\"denominator\": 500.0, \"denominator_label\": \"t sugar produced\", \"key\": \"electricity_per_sugar\", \"label\": \"Electricity per tonne of sugar produced\", \"numerator\": 46000.0, \"numerator_unit\": \"kWh\", \"provenance\": \"derived\", \"reason\": null, \"scope\": \"Factory-wide; not allocated to process stages\", \"synthetic\": true, \"unit\": \"kWh/t sugar produced\", \"value\": 92.0}, {\"denominator\": 5000.0, \"denominator_label\": \"t cane crushed\", \"key\": \"diesel_per_cane\", \"label\": \"Diesel per tonne of cane crushed\", \"numerator\": 2450.0, \"numerator_unit\": \"L\", \"provenance\": \"derived\", \"reason\": null, \"scope\": \"Factory-wide; not allocated to process stages\", \"synthetic\": true, \"unit\": \"L/t cane crushed\", \"value\": 0.49}], \"inventory\": {\"categories\": [{\"assessed_kg_co2e\": 32200.0, \"category\": \"purchased_electricity\", \"completeness\": \"all_records_calculated\", \"factor_provenance\": [\"activity:synthetic_demo\", \"factor:synthetic_demo\"], \"label\": \"Purchased electricity\", \"n_calculated\": 3, \"n_records\": 3, \"n_unresolved\": 0, \"note\": \"All recorded activity records calculated; period coverage not verified.\", \"unit\": \"kgCO2e\", \"warnings\": [\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]}, {\"assessed_kg_co2e\": 6125.0, \"category\": \"diesel\", \"completeness\": \"all_records_calculated\", \"factor_provenance\": [\"activity:synthetic_demo\", \"factor:synthetic_demo\"], \"label\": \"Diesel combustion\", \"n_calculated\": 3, \"n_records\": 3, \"n_unresolved\": 0, \"note\": \"All recorded activity records calculated; period coverage not verified.\", \"unit\": \"kgCO2e\", \"warnings\": [\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]}, {\"assessed_kg_co2e\": null, \"category\": \"other_fossil_fuels\", \"completeness\": \"unresolved\", \"factor_provenance\": [\"activity:synthetic_demo\"], \"label\": \"Other fossil fuels\", \"n_calculated\": 0, \"n_records\": 1, \"n_unresolved\": 1, \"note\": \"None of 1 records could be calculated.\", \"unit\": \"kgCO2e\", \"warnings\": []}, {\"assessed_kg_co2e\": null, \"category\": \"bagasse_combustion\", \"completeness\": \"not_assessed\", \"factor_provenance\": [\"activity:synthetic_demo\"], \"label\": \"Bagasse combustion\", \"n_calculated\": 0, \"n_records\": 1, \"n_unresolved\": 1, \"note\": \"Not assessed in the MVP: biogenic CO2 and non-CO2 (CH4/N2O) treatment is not implemented. Bagasse is never added to the fossil total.\", \"unit\": \"kgCO2e\", \"warnings\": []}, {\"assessed_kg_co2e\": null, \"category\": \"purchased_steam_energy\", \"completeness\": \"not_assessed\", \"factor_provenance\": [], \"label\": \"Purchased steam or other energy\", \"n_calculated\": 0, \"n_records\": 0, \"n_unresolved\": 0, \"note\": \"No activity data recorded.\", \"unit\": \"kgCO2e\", \"warnings\": []}, {\"assessed_kg_co2e\": null, \"category\": \"cane_transport\", \"completeness\": \"not_assessed\", \"factor_provenance\": [], \"label\": \"Cane transport\", \"n_calculated\": 0, \"n_records\": 0, \"n_unresolved\": 0, \"note\": \"No activity data recorded.\", \"unit\": \"kgCO2e\", \"warnings\": []}, {\"assessed_kg_co2e\": null, \"category\": \"wastewater_effluent\", \"completeness\": \"not_assessed\", \"factor_provenance\": [], \"label\": \"Wastewater and effluent\", \"n_calculated\": 0, \"n_records\": 0, \"n_unresolved\": 0, \"note\": \"No method implemented in the MVP; no activity data recorded.\", \"unit\": \"kgCO2e\", \"warnings\": []}, {\"assessed_kg_co2e\": null, \"category\": \"refrigerants\", \"completeness\": \"unresolved\", \"factor_provenance\": [\"activity:synthetic_demo\"], \"label\": \"Refrigerants\", \"n_calculated\": 0, \"n_records\": 1, \"n_unresolved\": 1, \"note\": \"None of 1 records could be calculated.\", \"unit\": \"kgCO2e\", \"warnings\": []}, {\"assessed_kg_co2e\": null, \"category\": \"other_sources\", \"completeness\": \"not_assessed\", \"factor_provenance\": [], \"label\": \"Other sources\", \"n_calculated\": 0, \"n_records\": 0, \"n_unresolved\": 0, \"note\": \"No method implemented in the MVP; no activity data recorded.\", \"unit\": \"kgCO2e\", \"warnings\": []}], \"inventory_status\": \"incomplete\", \"is_synthetic\": true, \"totals\": {\"assessed_kg_co2e\": 38325.0, \"n_calculated\": 6, \"n_needs_review\": 0, \"n_not_calculated\": 3, \"non_synthetic_kg_co2e\": 0.0, \"status_counts\": {\"calculated\": 6, \"missing_activity_data\": 1, \"missing_factor\": 1, \"not_assessed\": 1}, \"synthetic_demo_kg_co2e\": 38325.0, \"total_label\": \"Partial assessed total\", \"unresolved_categories\": [\"other_fossil_fuels\", \"bagasse_combustion\", \"purchased_steam_energy\", \"cane_transport\", \"wastewater_effluent\", \"refrigerants\", \"other_sources\"]}, \"unresolved_count\": 10, \"unresolved_records\": 3}, \"is_synthetic\": true, \"period\": {\"boundary_description\": \"FICTIONAL demo boundary: factory-gate purchased electricity and diesel records only. Other categories are shown as not assessed.\", \"cane_crushed_t\": 5000.0, \"data_source_notes\": \"FICTIONAL synthetic data.\", \"end_date\": \"2026-03-31\", \"id\": 2, \"start_date\": \"2026-01-01\", \"sugar_produced_t\": 500.0}, \"previous_period_compared\": \"previous period 2025-10-01 to 2025-12-31\", \"recommendations\": [{\"assumptions\": \"The activity actually occurred in this period.\", \"basis\": \"observation\", \"confidence\": \"High that data is missing\", \"evidence\": \"Record exists without a quantity.\", \"expected_benefit\": \"Not applicable (data completeness).\", \"limitation\": \"None.\", \"observation\": \"Record #12 (Refrigerant top-up (quantity not yet available)) has no quantity.\", \"required_additional_data\": \"The missing quantity and its source.\", \"suggested_action\": \"Locate the source record (log, invoice, maintenance entry) and enter the quantity.\", \"title\": \"Obtain the missing quantity for record #12\", \"verification\": \"Check the entered value against the source document.\", \"why_it_matters\": \"Missing data is not zero; the inventory stays incomplete until it is supplied.\"}, {\"assumptions\": \"Other records in the period are representative.\", \"basis\": \"observation\", \"confidence\": \"Preliminary\", \"evidence\": \"Compared with the median (13100 kWh) of 3 records; threshold \\u00b150%. This does not establish a fault.\", \"expected_benefit\": \"Not quantified.\", \"limitation\": \"A deviation from the median is not proof of a fault.\", \"observation\": \"Record #6 (Grid electricity, 2026-03-01) is 56% above the median of this period's purchased electricity records.\", \"required_additional_data\": \"Original bill/log; operating log for the period.\", \"suggested_action\": \"Compare the record with the original bill or log and with operating events in that month.\", \"title\": \"Check record #6 against its source document\", \"verification\": \"Confirm against the source document and meter readings.\", \"why_it_matters\": \"An unusual value may be a genuine operating event or a data-entry or billing issue.\"}, {\"assumptions\": \"Both periods use comparable boundaries and production definitions.\", \"basis\": \"observation\", \"confidence\": \"Preliminary\", \"evidence\": \"Recorded energy and production values for both periods (see Calculations).\", \"expected_benefit\": \"Not quantified \\u2014 no supportable estimate from the available data.\", \"limitation\": \"This observation does not establish the cause of the change.\", \"observation\": \"Electricity per tonne of cane crushed changed by +45% versus previous period 2025-10-01 to 2025-12-31 (6.346 \\u2192 9.2 kWh/t cane crushed).\", \"required_additional_data\": \"Validated meter data; production data on a consistent basis.\", \"suggested_action\": \"Review operating schedules, equipment loading, maintenance and metering for both periods.\", \"title\": \"Investigate an increase in energy intensity\", \"verification\": \"Compare validated meter readings and production records over a consistent operating period.\", \"why_it_matters\": \"A change in energy per unit of production can indicate operating, metering or data differences.\"}, {\"assumptions\": \"Both periods use comparable boundaries and production definitions.\", \"basis\": \"observation\", \"confidence\": \"Preliminary\", \"evidence\": \"Recorded energy and production values for both periods (see Calculations).\", \"expected_benefit\": \"Not quantified \\u2014 no supportable estimate from the available data.\", \"limitation\": \"This observation does not establish the cause of the change.\", \"observation\": \"Electricity per tonne of sugar produced changed by +45% versus previous period 2025-10-01 to 2025-12-31 (63.46 \\u2192 92 kWh/t sugar produced).\", \"required_additional_data\": \"Validated meter data; production data on a consistent basis.\", \"suggested_action\": \"Review operating schedules, equipment loading, maintenance and metering for both periods.\", \"title\": \"Investigate an increase in energy intensity\", \"verification\": \"Compare validated meter readings and production records over a consistent operating period.\", \"why_it_matters\": \"A change in energy per unit of production can indicate operating, metering or data differences.\"}, {\"assumptions\": \"Each listed category is relevant to the mill's boundary.\", \"basis\": \"generic\", \"confidence\": \"N/A (generic)\", \"evidence\": \"Category summary in the snapshot.\", \"expected_benefit\": \"Not quantified.\", \"limitation\": \"Generic suggestion, not derived from a specific observation.\", \"observation\": \"These categories are not fully assessed: Other fossil fuels, Bagasse combustion, Purchased steam or other energy, Cane transport, Wastewater and effluent, Refrigerants, Other sources.\", \"required_additional_data\": \"Activity records and verified factors per category.\", \"suggested_action\": \"For each category, collect activity data and source a documented, verified factor, or declare it outside the boundary with a reason.\", \"title\": \"Close inventory gaps (generic suggestion)\", \"verification\": \"Reviewer reproduces each category from source records and factors.\", \"why_it_matters\": \"The assessed total is partial and cannot be read as the factory's complete emissions.\"}, {\"assumptions\": \"Sub-meters exist or can be installed.\", \"basis\": \"generic\", \"confidence\": \"N/A (generic)\", \"evidence\": \"Activity records cover whole-factory bills.\", \"expected_benefit\": \"Not quantified.\", \"limitation\": \"Generic suggestion, not derived from the recorded data.\", \"observation\": \"Electricity is recorded at factory level only.\", \"required_additional_data\": \"Stage-level meter readings.\", \"suggested_action\": \"Identify whether existing sub-meters (e.g. cane preparation, mills, evaporation) can be logged.\", \"title\": \"Add sub-metering to enable process-stage analysis (generic suggestion)\", \"verification\": \"Sum of sub-meters reconciles with the main meter.\", \"why_it_matters\": \"Process-stage allocation requires stage-level measurements; none are assumed here.\"}], \"reporting_mode\": \"demo\", \"synthetic_label\": \"SYNTHETIC DEMONSTRATION \\u2014 fictional activity data and illustrative factor. Not suitable for real factory reporting.\"}",
+    "notes": null,
+    "summary": {
+      "anomalies": [
+        {
+          "activity_record_id": 10,
+          "code": "FUEL_NO_FACTOR",
+          "message": "Fuel record #10 (Coal for boiler start-up (fictional)) has no usable emission factor.",
+          "severity": "high",
+          "why_flagged": "Fuel use is recorded but no factor is available, so it contributes no calculated emissions."
+        },
+        {
+          "activity_record_id": 12,
+          "code": "MISSING_QUANTITY",
+          "message": "Record #12 (Refrigerant top-up (quantity not yet available)) has no quantity.",
+          "severity": "high",
+          "why_flagged": "Missing activity data is not treated as zero; the record cannot be calculated."
+        },
+        {
+          "activity_record_id": null,
+          "code": "FACTOR_NOT_APPROVED",
+          "message": "Factor EF-ELECTRICITY-DEMO-001 is marked 'illustrative' and was used by 3 record(s): #4, #5, #6.",
+          "severity": "medium",
+          "why_flagged": "Factors that are illustrative or need review are not approved for real reporting."
+        },
+        {
+          "activity_record_id": null,
+          "code": "FACTOR_NOT_APPROVED",
+          "message": "Factor EF-DIESEL-DEMO-001 is marked 'illustrative' and was used by 3 record(s): #7, #8, #9.",
+          "severity": "medium",
+          "why_flagged": "Factors that are illustrative or need review are not approved for real reporting."
+        },
+        {
+          "activity_record_id": 6,
+          "code": "OUTLIER_VS_MEDIAN",
+          "message": "Record #6 (Grid electricity, 2026-03-01) is 56% above the median of this period's purchased electricity records.",
+          "severity": "medium",
+          "why_flagged": "Compared with the median (13100 kWh) of 3 records; threshold \u00b150%. This does not establish a fault."
+        },
+        {
+          "activity_record_id": null,
+          "change": 0.44969696969696965,
+          "code": "INTENSITY_CHANGE",
+          "message": "Electricity per tonne of cane crushed changed by +45% versus previous period 2025-10-01 to 2025-12-31 (6.346 \u2192 9.2 kWh/t cane crushed).",
+          "severity": "medium",
+          "why_flagged": "Threshold \u00b120%. Boundaries and production units are user-entered; confirm they are comparable before drawing conclusions."
+        },
+        {
+          "activity_record_id": null,
+          "change": 0.44969696969696976,
+          "code": "INTENSITY_CHANGE",
+          "message": "Electricity per tonne of sugar produced changed by +45% versus previous period 2025-10-01 to 2025-12-31 (63.46 \u2192 92 kWh/t sugar produced).",
+          "severity": "medium",
+          "why_flagged": "Threshold \u00b120%. Boundaries and production units are user-entered; confirm they are comparable before drawing conclusions."
+        }
+      ],
+      "excluded_categories": {},
+      "factory": {
+        "id": 1,
+        "is_synthetic": true,
+        "location": "Fictional location \u2014 not a real facility",
+        "name": "DEMO Sugar Mill (FICTIONAL)"
+      },
+      "intensity": [
+        {
+          "denominator": 5000.0,
+          "denominator_label": "t cane crushed",
+          "key": "electricity_per_cane",
+          "label": "Electricity per tonne of cane crushed",
+          "numerator": 46000.0,
+          "numerator_unit": "kWh",
+          "provenance": "derived",
+          "reason": null,
+          "scope": "Factory-wide; not allocated to process stages",
+          "synthetic": true,
+          "unit": "kWh/t cane crushed",
+          "value": 9.2
+        },
+        {
+          "denominator": 500.0,
+          "denominator_label": "t sugar produced",
+          "key": "electricity_per_sugar",
+          "label": "Electricity per tonne of sugar produced",
+          "numerator": 46000.0,
+          "numerator_unit": "kWh",
+          "provenance": "derived",
+          "reason": null,
+          "scope": "Factory-wide; not allocated to process stages",
+          "synthetic": true,
+          "unit": "kWh/t sugar produced",
+          "value": 92.0
+        },
+        {
+          "denominator": 5000.0,
+          "denominator_label": "t cane crushed",
+          "key": "diesel_per_cane",
+          "label": "Diesel per tonne of cane crushed",
+          "numerator": 2450.0,
+          "numerator_unit": "L",
+          "provenance": "derived",
+          "reason": null,
+          "scope": "Factory-wide; not allocated to process stages",
+          "synthetic": true,
+          "unit": "L/t cane crushed",
+          "value": 0.49
+        }
+      ],
+      "inventory": {
+        "categories": [
+          {
+            "assessed_kg_co2e": 32200.0,
+            "category": "purchased_electricity",
+            "completeness": "all_records_calculated",
+            "factor_provenance": [
+              "activity:synthetic_demo",
+              "factor:synthetic_demo"
+            ],
+            "label": "Purchased electricity",
+            "n_calculated": 3,
+            "n_records": 3,
+            "n_unresolved": 0,
+            "note": "All recorded activity records calculated; period coverage not verified.",
+            "unit": "kgCO2e",
+            "warnings": [
+              "Factor is illustrative \u2014 not for real reporting.",
+              "The result shown is based on synthetic demonstration data."
+            ]
+          },
+          {
+            "assessed_kg_co2e": 6125.0,
+            "category": "diesel",
+            "completeness": "all_records_calculated",
+            "factor_provenance": [
+              "activity:synthetic_demo",
+              "factor:synthetic_demo"
+            ],
+            "label": "Diesel combustion",
+            "n_calculated": 3,
+            "n_records": 3,
+            "n_unresolved": 0,
+            "note": "All recorded activity records calculated; period coverage not verified.",
+            "unit": "kgCO2e",
+            "warnings": [
+              "Factor is illustrative \u2014 not for real reporting.",
+              "The result shown is based on synthetic demonstration data."
+            ]
+          },
+          {
+            "assessed_kg_co2e": null,
+            "category": "other_fossil_fuels",
+            "completeness": "unresolved",
+            "factor_provenance": [
+              "activity:synthetic_demo"
+            ],
+            "label": "Other fossil fuels",
+            "n_calculated": 0,
+            "n_records": 1,
+            "n_unresolved": 1,
+            "note": "None of 1 records could be calculated.",
+            "unit": "kgCO2e",
+            "warnings": []
+          },
+          {
+            "assessed_kg_co2e": null,
+            "category": "bagasse_combustion",
+            "completeness": "not_assessed",
+            "factor_provenance": [
+              "activity:synthetic_demo"
+            ],
+            "label": "Bagasse combustion",
+            "n_calculated": 0,
+            "n_records": 1,
+            "n_unresolved": 1,
+            "note": "Not assessed in the MVP: biogenic CO2 and non-CO2 (CH4/N2O) treatment is not implemented. Bagasse is never added to the fossil total.",
+            "unit": "kgCO2e",
+            "warnings": []
+          },
+          {
+            "assessed_kg_co2e": null,
+            "category": "purchased_steam_energy",
+            "completeness": "not_assessed",
+            "factor_provenance": [],
+            "label": "Purchased steam or other energy",
+            "n_calculated": 0,
+            "n_records": 0,
+            "n_unresolved": 0,
+            "note": "No activity data recorded.",
+            "unit": "kgCO2e",
+            "warnings": []
+          },
+          {
+            "assessed_kg_co2e": null,
+            "category": "cane_transport",
+            "completeness": "not_assessed",
+            "factor_provenance": [],
+            "label": "Cane transport",
+            "n_calculated": 0,
+            "n_records": 0,
+            "n_unresolved": 0,
+            "note": "No activity data recorded.",
+            "unit": "kgCO2e",
+            "warnings": []
+          },
+          {
+            "assessed_kg_co2e": null,
+            "category": "wastewater_effluent",
+            "completeness": "not_assessed",
+            "factor_provenance": [],
+            "label": "Wastewater and effluent",
+            "n_calculated": 0,
+            "n_records": 0,
+            "n_unresolved": 0,
+            "note": "No method implemented in the MVP; no activity data recorded.",
+            "unit": "kgCO2e",
+            "warnings": []
+          },
+          {
+            "assessed_kg_co2e": null,
+            "category": "refrigerants",
+            "completeness": "unresolved",
+            "factor_provenance": [
+              "activity:synthetic_demo"
+            ],
+            "label": "Refrigerants",
+            "n_calculated": 0,
+            "n_records": 1,
+            "n_unresolved": 1,
+            "note": "None of 1 records could be calculated.",
+            "unit": "kgCO2e",
+            "warnings": []
+          },
+          {
+            "assessed_kg_co2e": null,
+            "category": "other_sources",
+            "completeness": "not_assessed",
+            "factor_provenance": [],
+            "label": "Other sources",
+            "n_calculated": 0,
+            "n_records": 0,
+            "n_unresolved": 0,
+            "note": "No method implemented in the MVP; no activity data recorded.",
+            "unit": "kgCO2e",
+            "warnings": []
+          }
+        ],
+        "inventory_status": "incomplete",
+        "is_synthetic": true,
+        "totals": {
+          "assessed_kg_co2e": 38325.0,
+          "n_calculated": 6,
+          "n_needs_review": 0,
+          "n_not_calculated": 3,
+          "non_synthetic_kg_co2e": 0.0,
+          "status_counts": {
+            "calculated": 6,
+            "missing_activity_data": 1,
+            "missing_factor": 1,
+            "not_assessed": 1
+          },
+          "synthetic_demo_kg_co2e": 38325.0,
+          "total_label": "Partial assessed total",
+          "unresolved_categories": [
+            "other_fossil_fuels",
+            "bagasse_combustion",
+            "purchased_steam_energy",
+            "cane_transport",
+            "wastewater_effluent",
+            "refrigerants",
+            "other_sources"
+          ]
+        },
+        "unresolved_count": 10,
+        "unresolved_records": 3
+      },
+      "is_synthetic": true,
+      "period": {
+        "boundary_description": "FICTIONAL demo boundary: factory-gate purchased electricity and diesel records only. Other categories are shown as not assessed.",
+        "cane_crushed_t": 5000.0,
+        "data_source_notes": "FICTIONAL synthetic data.",
+        "end_date": "2026-03-31",
+        "id": 2,
+        "start_date": "2026-01-01",
+        "sugar_produced_t": 500.0
+      },
+      "previous_period_compared": "previous period 2025-10-01 to 2025-12-31",
+      "recommendations": [
+        {
+          "assumptions": "The activity actually occurred in this period.",
+          "basis": "observation",
+          "confidence": "High that data is missing",
+          "evidence": "Record exists without a quantity.",
+          "expected_benefit": "Not applicable (data completeness).",
+          "limitation": "None.",
+          "observation": "Record #12 (Refrigerant top-up (quantity not yet available)) has no quantity.",
+          "required_additional_data": "The missing quantity and its source.",
+          "suggested_action": "Locate the source record (log, invoice, maintenance entry) and enter the quantity.",
+          "title": "Obtain the missing quantity for record #12",
+          "verification": "Check the entered value against the source document.",
+          "why_it_matters": "Missing data is not zero; the inventory stays incomplete until it is supplied."
+        },
+        {
+          "assumptions": "Other records in the period are representative.",
+          "basis": "observation",
+          "confidence": "Preliminary",
+          "evidence": "Compared with the median (13100 kWh) of 3 records; threshold \u00b150%. This does not establish a fault.",
+          "expected_benefit": "Not quantified.",
+          "limitation": "A deviation from the median is not proof of a fault.",
+          "observation": "Record #6 (Grid electricity, 2026-03-01) is 56% above the median of this period's purchased electricity records.",
+          "required_additional_data": "Original bill/log; operating log for the period.",
+          "suggested_action": "Compare the record with the original bill or log and with operating events in that month.",
+          "title": "Check record #6 against its source document",
+          "verification": "Confirm against the source document and meter readings.",
+          "why_it_matters": "An unusual value may be a genuine operating event or a data-entry or billing issue."
+        },
+        {
+          "assumptions": "Both periods use comparable boundaries and production definitions.",
+          "basis": "observation",
+          "confidence": "Preliminary",
+          "evidence": "Recorded energy and production values for both periods (see Calculations).",
+          "expected_benefit": "Not quantified \u2014 no supportable estimate from the available data.",
+          "limitation": "This observation does not establish the cause of the change.",
+          "observation": "Electricity per tonne of cane crushed changed by +45% versus previous period 2025-10-01 to 2025-12-31 (6.346 \u2192 9.2 kWh/t cane crushed).",
+          "required_additional_data": "Validated meter data; production data on a consistent basis.",
+          "suggested_action": "Review operating schedules, equipment loading, maintenance and metering for both periods.",
+          "title": "Investigate an increase in energy intensity",
+          "verification": "Compare validated meter readings and production records over a consistent operating period.",
+          "why_it_matters": "A change in energy per unit of production can indicate operating, metering or data differences."
+        },
+        {
+          "assumptions": "Both periods use comparable boundaries and production definitions.",
+          "basis": "observation",
+          "confidence": "Preliminary",
+          "evidence": "Recorded energy and production values for both periods (see Calculations).",
+          "expected_benefit": "Not quantified \u2014 no supportable estimate from the available data.",
+          "limitation": "This observation does not establish the cause of the change.",
+          "observation": "Electricity per tonne of sugar produced changed by +45% versus previous period 2025-10-01 to 2025-12-31 (63.46 \u2192 92 kWh/t sugar produced).",
+          "required_additional_data": "Validated meter data; production data on a consistent basis.",
+          "suggested_action": "Review operating schedules, equipment loading, maintenance and metering for both periods.",
+          "title": "Investigate an increase in energy intensity",
+          "verification": "Compare validated meter readings and production records over a consistent operating period.",
+          "why_it_matters": "A change in energy per unit of production can indicate operating, metering or data differences."
+        },
+        {
+          "assumptions": "Each listed category is relevant to the mill's boundary.",
+          "basis": "generic",
+          "confidence": "N/A (generic)",
+          "evidence": "Category summary in the snapshot.",
+          "expected_benefit": "Not quantified.",
+          "limitation": "Generic suggestion, not derived from a specific observation.",
+          "observation": "These categories are not fully assessed: Other fossil fuels, Bagasse combustion, Purchased steam or other energy, Cane transport, Wastewater and effluent, Refrigerants, Other sources.",
+          "required_additional_data": "Activity records and verified factors per category.",
+          "suggested_action": "For each category, collect activity data and source a documented, verified factor, or declare it outside the boundary with a reason.",
+          "title": "Close inventory gaps (generic suggestion)",
+          "verification": "Reviewer reproduces each category from source records and factors.",
+          "why_it_matters": "The assessed total is partial and cannot be read as the factory's complete emissions."
+        },
+        {
+          "assumptions": "Sub-meters exist or can be installed.",
+          "basis": "generic",
+          "confidence": "N/A (generic)",
+          "evidence": "Activity records cover whole-factory bills.",
+          "expected_benefit": "Not quantified.",
+          "limitation": "Generic suggestion, not derived from the recorded data.",
+          "observation": "Electricity is recorded at factory level only.",
+          "required_additional_data": "Stage-level meter readings.",
+          "suggested_action": "Identify whether existing sub-meters (e.g. cane preparation, mills, evaporation) can be logged.",
+          "title": "Add sub-metering to enable process-stage analysis (generic suggestion)",
+          "verification": "Sum of sub-meters reconciles with the main meter.",
+          "why_it_matters": "Process-stage allocation requires stage-level measurements; none are assumed here."
+        }
+      ],
+      "reporting_mode": "demo",
+      "synthetic_label": "SYNTHETIC DEMONSTRATION \u2014 fictional activity data and illustrative factor. Not suitable for real factory reporting."
+    }
+  },
+  "stale": false,
+  "results": [
+    {
+      "id": 1,
+      "snapshot_id": 1,
+      "activity_record_id": 4,
+      "factor_id": "EF-ELECTRICITY-DEMO-001",
+      "input_quantity_snapshot": 12500.0,
+      "input_unit_snapshot": "kWh",
+      "factor_value_snapshot": 0.7,
+      "factor_numerator_unit_snapshot": "kgCO2e",
+      "factor_denominator_unit_snapshot": "kWh",
+      "conversion_description": "None",
+      "formula_description": "Emissions (kgCO2e) = quantity (12500 kWh) \u00d7 factor (0.7 kgCO2e/kWh) = 8750 kgCO2e",
+      "result_value": 8750.0,
+      "result_unit": "kgCO2e",
+      "status": "calculated",
+      "message": "Calculated.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": "synthetic_demo",
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-01-01\", \"activity_name\": \"Grid electricity\", \"category\": \"purchased_electricity\", \"created_at\": \"2026-10-31T16:27:03.780903+00:00\", \"factory_id\": 1, \"id\": 4, \"notes\": \"Fictional demonstration record\", \"provenance\": \"synthetic_demo\", \"quantity\": 12500.0, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-BILL-001\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"kWh\", \"updated_at\": \"2026-10-31T16:27:03.780903+00:00\"}",
+      "factor_snapshot_json": "{\"applicable_year\": null, \"category\": \"purchased_electricity\", \"created_at\": \"2026-10-31T16:27:03.779980+00:00\", \"denominator_unit\": \"kWh\", \"gas_basis\": \"CO2e (synthetic)\", \"geography\": \"Synthetic demonstration only\", \"id\": \"EF-ELECTRICITY-DEMO-001\", \"is_active\": 1, \"name\": \"Synthetic electricity emissions factor\", \"notes\": \"Fictional demonstration value. NOT a current Indian grid factor. Not for real reporting.\", \"numerator_unit\": \"kgCO2e\", \"provenance\": \"synthetic_demo\", \"publication_date\": null, \"source_document\": null, \"source_organization\": null, \"source_reference\": null, \"source_url\": null, \"status\": \"illustrative\", \"updated_at\": \"2026-10-31T16:27:03.779980+00:00\", \"value\": 0.7}",
+      "warnings_json": "[\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-01-01",
+        "activity_name": "Grid electricity",
+        "category": "purchased_electricity",
+        "created_at": "2026-10-31T16:27:03.780903+00:00",
+        "factory_id": 1,
+        "id": 4,
+        "notes": "Fictional demonstration record",
+        "provenance": "synthetic_demo",
+        "quantity": 12500.0,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-BILL-001",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "kWh",
+        "updated_at": "2026-10-31T16:27:03.780903+00:00"
+      },
+      "factor_snapshot": {
+        "applicable_year": null,
+        "category": "purchased_electricity",
+        "created_at": "2026-10-31T16:27:03.779980+00:00",
+        "denominator_unit": "kWh",
+        "gas_basis": "CO2e (synthetic)",
+        "geography": "Synthetic demonstration only",
+        "id": "EF-ELECTRICITY-DEMO-001",
+        "is_active": 1,
+        "name": "Synthetic electricity emissions factor",
+        "notes": "Fictional demonstration value. NOT a current Indian grid factor. Not for real reporting.",
+        "numerator_unit": "kgCO2e",
+        "provenance": "synthetic_demo",
+        "publication_date": null,
+        "source_document": null,
+        "source_organization": null,
+        "source_reference": null,
+        "source_url": null,
+        "status": "illustrative",
+        "updated_at": "2026-10-31T16:27:03.779980+00:00",
+        "value": 0.7
+      },
+      "warnings": [
+        "Factor is illustrative \u2014 not for real reporting.",
+        "The result shown is based on synthetic demonstration data."
+      ],
+      "recomputed_kg": 8750.0,
+      "recompute_matches": true,
+      "plain_formula": "12,500 kWh \u00d7 0.70 kgCO\u2082e/kWh = 8,750 kg",
+      "source_reference": "DEMO-BILL-001",
+      "activity_name": "Grid electricity",
+      "activity_date": "2026-01-01",
+      "category": "purchased_electricity",
+      "category_label": "Purchased electricity",
+      "fictional": true,
+      "factor_source": "No source recorded",
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 2,
+      "snapshot_id": 1,
+      "activity_record_id": 7,
+      "factor_id": "EF-DIESEL-DEMO-001",
+      "input_quantity_snapshot": 800.0,
+      "input_unit_snapshot": "L",
+      "factor_value_snapshot": 2.5,
+      "factor_numerator_unit_snapshot": "kgCO2e",
+      "factor_denominator_unit_snapshot": "L",
+      "conversion_description": "None",
+      "formula_description": "Emissions (kgCO2e) = quantity (800 L) \u00d7 factor (2.5 kgCO2e/L) = 2000 kgCO2e",
+      "result_value": 2000.0,
+      "result_unit": "kgCO2e",
+      "status": "calculated",
+      "message": "Calculated.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": "synthetic_demo",
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-01-15\", \"activity_name\": \"Generator diesel\", \"category\": \"diesel\", \"created_at\": \"2026-10-31T16:27:03.781242+00:00\", \"factory_id\": 1, \"id\": 7, \"notes\": \"Fictional demonstration record\", \"provenance\": \"synthetic_demo\", \"quantity\": 800.0, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-DSL-001\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"L\", \"updated_at\": \"2026-10-31T16:27:03.781242+00:00\"}",
+      "factor_snapshot_json": "{\"applicable_year\": null, \"category\": \"diesel\", \"created_at\": \"2026-10-31T16:27:03.780328+00:00\", \"denominator_unit\": \"L\", \"gas_basis\": \"CO2e (synthetic)\", \"geography\": \"Synthetic demonstration only\", \"id\": \"EF-DIESEL-DEMO-001\", \"is_active\": 1, \"name\": \"Synthetic diesel emissions factor\", \"notes\": \"Fictional round number chosen for the demo. NOT a published diesel factor. Not for real reporting.\", \"numerator_unit\": \"kgCO2e\", \"provenance\": \"synthetic_demo\", \"publication_date\": null, \"source_document\": null, \"source_organization\": null, \"source_reference\": null, \"source_url\": null, \"status\": \"illustrative\", \"updated_at\": \"2026-10-31T16:27:03.780328+00:00\", \"value\": 2.5}",
+      "warnings_json": "[\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-01-15",
+        "activity_name": "Generator diesel",
+        "category": "diesel",
+        "created_at": "2026-10-31T16:27:03.781242+00:00",
+        "factory_id": 1,
+        "id": 7,
+        "notes": "Fictional demonstration record",
+        "provenance": "synthetic_demo",
+        "quantity": 800.0,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-DSL-001",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "L",
+        "updated_at": "2026-10-31T16:27:03.781242+00:00"
+      },
+      "factor_snapshot": {
+        "applicable_year": null,
+        "category": "diesel",
+        "created_at": "2026-10-31T16:27:03.780328+00:00",
+        "denominator_unit": "L",
+        "gas_basis": "CO2e (synthetic)",
+        "geography": "Synthetic demonstration only",
+        "id": "EF-DIESEL-DEMO-001",
+        "is_active": 1,
+        "name": "Synthetic diesel emissions factor",
+        "notes": "Fictional round number chosen for the demo. NOT a published diesel factor. Not for real reporting.",
+        "numerator_unit": "kgCO2e",
+        "provenance": "synthetic_demo",
+        "publication_date": null,
+        "source_document": null,
+        "source_organization": null,
+        "source_reference": null,
+        "source_url": null,
+        "status": "illustrative",
+        "updated_at": "2026-10-31T16:27:03.780328+00:00",
+        "value": 2.5
+      },
+      "warnings": [
+        "Factor is illustrative \u2014 not for real reporting.",
+        "The result shown is based on synthetic demonstration data."
+      ],
+      "recomputed_kg": 2000.0,
+      "recompute_matches": true,
+      "plain_formula": "800 L \u00d7 2.50 kgCO\u2082e/L = 2,000 kg",
+      "source_reference": "DEMO-DSL-001",
+      "activity_name": "Generator diesel",
+      "activity_date": "2026-01-15",
+      "category": "diesel",
+      "category_label": "Diesel combustion",
+      "fictional": true,
+      "factor_source": "No source recorded",
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 3,
+      "snapshot_id": 1,
+      "activity_record_id": 5,
+      "factor_id": "EF-ELECTRICITY-DEMO-001",
+      "input_quantity_snapshot": 13100.0,
+      "input_unit_snapshot": "kWh",
+      "factor_value_snapshot": 0.7,
+      "factor_numerator_unit_snapshot": "kgCO2e",
+      "factor_denominator_unit_snapshot": "kWh",
+      "conversion_description": "None",
+      "formula_description": "Emissions (kgCO2e) = quantity (13100 kWh) \u00d7 factor (0.7 kgCO2e/kWh) = 9170 kgCO2e",
+      "result_value": 9170.0,
+      "result_unit": "kgCO2e",
+      "status": "calculated",
+      "message": "Calculated.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": "synthetic_demo",
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-02-01\", \"activity_name\": \"Grid electricity\", \"category\": \"purchased_electricity\", \"created_at\": \"2026-10-31T16:27:03.781016+00:00\", \"factory_id\": 1, \"id\": 5, \"notes\": \"Fictional demonstration record\", \"provenance\": \"synthetic_demo\", \"quantity\": 13100.0, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-BILL-002\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"kWh\", \"updated_at\": \"2026-10-31T16:27:03.781016+00:00\"}",
+      "factor_snapshot_json": "{\"applicable_year\": null, \"category\": \"purchased_electricity\", \"created_at\": \"2026-10-31T16:27:03.779980+00:00\", \"denominator_unit\": \"kWh\", \"gas_basis\": \"CO2e (synthetic)\", \"geography\": \"Synthetic demonstration only\", \"id\": \"EF-ELECTRICITY-DEMO-001\", \"is_active\": 1, \"name\": \"Synthetic electricity emissions factor\", \"notes\": \"Fictional demonstration value. NOT a current Indian grid factor. Not for real reporting.\", \"numerator_unit\": \"kgCO2e\", \"provenance\": \"synthetic_demo\", \"publication_date\": null, \"source_document\": null, \"source_organization\": null, \"source_reference\": null, \"source_url\": null, \"status\": \"illustrative\", \"updated_at\": \"2026-10-31T16:27:03.779980+00:00\", \"value\": 0.7}",
+      "warnings_json": "[\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-02-01",
+        "activity_name": "Grid electricity",
+        "category": "purchased_electricity",
+        "created_at": "2026-10-31T16:27:03.781016+00:00",
+        "factory_id": 1,
+        "id": 5,
+        "notes": "Fictional demonstration record",
+        "provenance": "synthetic_demo",
+        "quantity": 13100.0,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-BILL-002",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "kWh",
+        "updated_at": "2026-10-31T16:27:03.781016+00:00"
+      },
+      "factor_snapshot": {
+        "applicable_year": null,
+        "category": "purchased_electricity",
+        "created_at": "2026-10-31T16:27:03.779980+00:00",
+        "denominator_unit": "kWh",
+        "gas_basis": "CO2e (synthetic)",
+        "geography": "Synthetic demonstration only",
+        "id": "EF-ELECTRICITY-DEMO-001",
+        "is_active": 1,
+        "name": "Synthetic electricity emissions factor",
+        "notes": "Fictional demonstration value. NOT a current Indian grid factor. Not for real reporting.",
+        "numerator_unit": "kgCO2e",
+        "provenance": "synthetic_demo",
+        "publication_date": null,
+        "source_document": null,
+        "source_organization": null,
+        "source_reference": null,
+        "source_url": null,
+        "status": "illustrative",
+        "updated_at": "2026-10-31T16:27:03.779980+00:00",
+        "value": 0.7
+      },
+      "warnings": [
+        "Factor is illustrative \u2014 not for real reporting.",
+        "The result shown is based on synthetic demonstration data."
+      ],
+      "recomputed_kg": 9170.0,
+      "recompute_matches": true,
+      "plain_formula": "13,100 kWh \u00d7 0.70 kgCO\u2082e/kWh = 9,170 kg",
+      "source_reference": "DEMO-BILL-002",
+      "activity_name": "Grid electricity",
+      "activity_date": "2026-02-01",
+      "category": "purchased_electricity",
+      "category_label": "Purchased electricity",
+      "fictional": true,
+      "factor_source": "No source recorded",
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 4,
+      "snapshot_id": 1,
+      "activity_record_id": 8,
+      "factor_id": "EF-DIESEL-DEMO-001",
+      "input_quantity_snapshot": 750.0,
+      "input_unit_snapshot": "L",
+      "factor_value_snapshot": 2.5,
+      "factor_numerator_unit_snapshot": "kgCO2e",
+      "factor_denominator_unit_snapshot": "L",
+      "conversion_description": "None",
+      "formula_description": "Emissions (kgCO2e) = quantity (750 L) \u00d7 factor (2.5 kgCO2e/L) = 1875 kgCO2e",
+      "result_value": 1875.0,
+      "result_unit": "kgCO2e",
+      "status": "calculated",
+      "message": "Calculated.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": "synthetic_demo",
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-02-12\", \"activity_name\": \"Generator diesel\", \"category\": \"diesel\", \"created_at\": \"2026-10-31T16:27:03.781352+00:00\", \"factory_id\": 1, \"id\": 8, \"notes\": \"Fictional demonstration record\", \"provenance\": \"synthetic_demo\", \"quantity\": 750.0, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-DSL-002\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"L\", \"updated_at\": \"2026-10-31T16:27:03.781352+00:00\"}",
+      "factor_snapshot_json": "{\"applicable_year\": null, \"category\": \"diesel\", \"created_at\": \"2026-10-31T16:27:03.780328+00:00\", \"denominator_unit\": \"L\", \"gas_basis\": \"CO2e (synthetic)\", \"geography\": \"Synthetic demonstration only\", \"id\": \"EF-DIESEL-DEMO-001\", \"is_active\": 1, \"name\": \"Synthetic diesel emissions factor\", \"notes\": \"Fictional round number chosen for the demo. NOT a published diesel factor. Not for real reporting.\", \"numerator_unit\": \"kgCO2e\", \"provenance\": \"synthetic_demo\", \"publication_date\": null, \"source_document\": null, \"source_organization\": null, \"source_reference\": null, \"source_url\": null, \"status\": \"illustrative\", \"updated_at\": \"2026-10-31T16:27:03.780328+00:00\", \"value\": 2.5}",
+      "warnings_json": "[\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-02-12",
+        "activity_name": "Generator diesel",
+        "category": "diesel",
+        "created_at": "2026-10-31T16:27:03.781352+00:00",
+        "factory_id": 1,
+        "id": 8,
+        "notes": "Fictional demonstration record",
+        "provenance": "synthetic_demo",
+        "quantity": 750.0,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-DSL-002",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "L",
+        "updated_at": "2026-10-31T16:27:03.781352+00:00"
+      },
+      "factor_snapshot": {
+        "applicable_year": null,
+        "category": "diesel",
+        "created_at": "2026-10-31T16:27:03.780328+00:00",
+        "denominator_unit": "L",
+        "gas_basis": "CO2e (synthetic)",
+        "geography": "Synthetic demonstration only",
+        "id": "EF-DIESEL-DEMO-001",
+        "is_active": 1,
+        "name": "Synthetic diesel emissions factor",
+        "notes": "Fictional round number chosen for the demo. NOT a published diesel factor. Not for real reporting.",
+        "numerator_unit": "kgCO2e",
+        "provenance": "synthetic_demo",
+        "publication_date": null,
+        "source_document": null,
+        "source_organization": null,
+        "source_reference": null,
+        "source_url": null,
+        "status": "illustrative",
+        "updated_at": "2026-10-31T16:27:03.780328+00:00",
+        "value": 2.5
+      },
+      "warnings": [
+        "Factor is illustrative \u2014 not for real reporting.",
+        "The result shown is based on synthetic demonstration data."
+      ],
+      "recomputed_kg": 1875.0,
+      "recompute_matches": true,
+      "plain_formula": "750 L \u00d7 2.50 kgCO\u2082e/L = 1,875 kg",
+      "source_reference": "DEMO-DSL-002",
+      "activity_name": "Generator diesel",
+      "activity_date": "2026-02-12",
+      "category": "diesel",
+      "category_label": "Diesel combustion",
+      "fictional": true,
+      "factor_source": "No source recorded",
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 5,
+      "snapshot_id": 1,
+      "activity_record_id": 10,
+      "factor_id": null,
+      "input_quantity_snapshot": 12.0,
+      "input_unit_snapshot": "t",
+      "factor_value_snapshot": null,
+      "factor_numerator_unit_snapshot": null,
+      "factor_denominator_unit_snapshot": null,
+      "conversion_description": null,
+      "formula_description": null,
+      "result_value": null,
+      "result_unit": null,
+      "status": "missing_factor",
+      "message": "No suitable emission factor is available for this category.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": null,
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-02-20\", \"activity_name\": \"Coal for boiler start-up (fictional)\", \"category\": \"other_fossil_fuels\", \"created_at\": \"2026-10-31T16:27:03.781533+00:00\", \"factory_id\": 1, \"id\": 10, \"notes\": \"Fictional demonstration record (no factor in the library on purpose, so it stays unresolved)\", \"provenance\": \"synthetic_demo\", \"quantity\": 12.0, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-FUEL-001\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"t\", \"updated_at\": \"2026-10-31T16:27:03.781533+00:00\"}",
+      "factor_snapshot_json": null,
+      "warnings_json": "[]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-02-20",
+        "activity_name": "Coal for boiler start-up (fictional)",
+        "category": "other_fossil_fuels",
+        "created_at": "2026-10-31T16:27:03.781533+00:00",
+        "factory_id": 1,
+        "id": 10,
+        "notes": "Fictional demonstration record (no factor in the library on purpose, so it stays unresolved)",
+        "provenance": "synthetic_demo",
+        "quantity": 12.0,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-FUEL-001",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "t",
+        "updated_at": "2026-10-31T16:27:03.781533+00:00"
+      },
+      "factor_snapshot": null,
+      "warnings": [],
+      "recomputed_kg": null,
+      "recompute_matches": null,
+      "plain_formula": null,
+      "source_reference": "DEMO-FUEL-001",
+      "activity_name": "Coal for boiler start-up (fictional)",
+      "activity_date": "2026-02-20",
+      "category": "other_fossil_fuels",
+      "category_label": "Other fossil fuels",
+      "fictional": true,
+      "factor_source": null,
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 6,
+      "snapshot_id": 1,
+      "activity_record_id": 11,
+      "factor_id": null,
+      "input_quantity_snapshot": 1800.0,
+      "input_unit_snapshot": "t",
+      "factor_value_snapshot": null,
+      "factor_numerator_unit_snapshot": null,
+      "factor_denominator_unit_snapshot": null,
+      "conversion_description": null,
+      "formula_description": null,
+      "result_value": null,
+      "result_unit": null,
+      "status": "not_assessed",
+      "message": "Not assessed \u2014 emission factor or required activity data unavailable. Not assessed in the MVP: biogenic CO2 and non-CO2 (CH4/N2O) treatment is not implemented. Bagasse is never added to the fossil total.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": null,
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-02-28\", \"activity_name\": \"Bagasse burned in boiler (fictional)\", \"category\": \"bagasse_combustion\", \"created_at\": \"2026-10-31T16:27:03.781628+00:00\", \"factory_id\": 1, \"id\": 11, \"notes\": \"Fictional demonstration record (bagasse is not assessed in the MVP)\", \"provenance\": \"synthetic_demo\", \"quantity\": 1800.0, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-BAG-001\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"t\", \"updated_at\": \"2026-10-31T16:27:03.781628+00:00\"}",
+      "factor_snapshot_json": null,
+      "warnings_json": "[]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-02-28",
+        "activity_name": "Bagasse burned in boiler (fictional)",
+        "category": "bagasse_combustion",
+        "created_at": "2026-10-31T16:27:03.781628+00:00",
+        "factory_id": 1,
+        "id": 11,
+        "notes": "Fictional demonstration record (bagasse is not assessed in the MVP)",
+        "provenance": "synthetic_demo",
+        "quantity": 1800.0,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-BAG-001",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "t",
+        "updated_at": "2026-10-31T16:27:03.781628+00:00"
+      },
+      "factor_snapshot": null,
+      "warnings": [],
+      "recomputed_kg": null,
+      "recompute_matches": null,
+      "plain_formula": null,
+      "source_reference": "DEMO-BAG-001",
+      "activity_name": "Bagasse burned in boiler (fictional)",
+      "activity_date": "2026-02-28",
+      "category": "bagasse_combustion",
+      "category_label": "Bagasse combustion",
+      "fictional": true,
+      "factor_source": null,
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 7,
+      "snapshot_id": 1,
+      "activity_record_id": 6,
+      "factor_id": "EF-ELECTRICITY-DEMO-001",
+      "input_quantity_snapshot": 20400.0,
+      "input_unit_snapshot": "kWh",
+      "factor_value_snapshot": 0.7,
+      "factor_numerator_unit_snapshot": "kgCO2e",
+      "factor_denominator_unit_snapshot": "kWh",
+      "conversion_description": "None",
+      "formula_description": "Emissions (kgCO2e) = quantity (20400 kWh) \u00d7 factor (0.7 kgCO2e/kWh) = 14280 kgCO2e",
+      "result_value": 14280.0,
+      "result_unit": "kgCO2e",
+      "status": "calculated",
+      "message": "Calculated.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": "synthetic_demo",
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-03-01\", \"activity_name\": \"Grid electricity\", \"category\": \"purchased_electricity\", \"created_at\": \"2026-10-31T16:27:03.781103+00:00\", \"factory_id\": 1, \"id\": 6, \"notes\": \"Fictional demonstration record (deliberately high month to demonstrate an outlier flag)\", \"provenance\": \"synthetic_demo\", \"quantity\": 20400.0, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-BILL-003\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"kWh\", \"updated_at\": \"2026-10-31T16:27:03.781103+00:00\"}",
+      "factor_snapshot_json": "{\"applicable_year\": null, \"category\": \"purchased_electricity\", \"created_at\": \"2026-10-31T16:27:03.779980+00:00\", \"denominator_unit\": \"kWh\", \"gas_basis\": \"CO2e (synthetic)\", \"geography\": \"Synthetic demonstration only\", \"id\": \"EF-ELECTRICITY-DEMO-001\", \"is_active\": 1, \"name\": \"Synthetic electricity emissions factor\", \"notes\": \"Fictional demonstration value. NOT a current Indian grid factor. Not for real reporting.\", \"numerator_unit\": \"kgCO2e\", \"provenance\": \"synthetic_demo\", \"publication_date\": null, \"source_document\": null, \"source_organization\": null, \"source_reference\": null, \"source_url\": null, \"status\": \"illustrative\", \"updated_at\": \"2026-10-31T16:27:03.779980+00:00\", \"value\": 0.7}",
+      "warnings_json": "[\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-03-01",
+        "activity_name": "Grid electricity",
+        "category": "purchased_electricity",
+        "created_at": "2026-10-31T16:27:03.781103+00:00",
+        "factory_id": 1,
+        "id": 6,
+        "notes": "Fictional demonstration record (deliberately high month to demonstrate an outlier flag)",
+        "provenance": "synthetic_demo",
+        "quantity": 20400.0,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-BILL-003",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "kWh",
+        "updated_at": "2026-10-31T16:27:03.781103+00:00"
+      },
+      "factor_snapshot": {
+        "applicable_year": null,
+        "category": "purchased_electricity",
+        "created_at": "2026-10-31T16:27:03.779980+00:00",
+        "denominator_unit": "kWh",
+        "gas_basis": "CO2e (synthetic)",
+        "geography": "Synthetic demonstration only",
+        "id": "EF-ELECTRICITY-DEMO-001",
+        "is_active": 1,
+        "name": "Synthetic electricity emissions factor",
+        "notes": "Fictional demonstration value. NOT a current Indian grid factor. Not for real reporting.",
+        "numerator_unit": "kgCO2e",
+        "provenance": "synthetic_demo",
+        "publication_date": null,
+        "source_document": null,
+        "source_organization": null,
+        "source_reference": null,
+        "source_url": null,
+        "status": "illustrative",
+        "updated_at": "2026-10-31T16:27:03.779980+00:00",
+        "value": 0.7
+      },
+      "warnings": [
+        "Factor is illustrative \u2014 not for real reporting.",
+        "The result shown is based on synthetic demonstration data."
+      ],
+      "recomputed_kg": 14280.0,
+      "recompute_matches": true,
+      "plain_formula": "20,400 kWh \u00d7 0.70 kgCO\u2082e/kWh = 14,280 kg",
+      "source_reference": "DEMO-BILL-003",
+      "activity_name": "Grid electricity",
+      "activity_date": "2026-03-01",
+      "category": "purchased_electricity",
+      "category_label": "Purchased electricity",
+      "fictional": true,
+      "factor_source": "No source recorded",
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 8,
+      "snapshot_id": 1,
+      "activity_record_id": 12,
+      "factor_id": null,
+      "input_quantity_snapshot": null,
+      "input_unit_snapshot": "kg",
+      "factor_value_snapshot": null,
+      "factor_numerator_unit_snapshot": null,
+      "factor_denominator_unit_snapshot": null,
+      "conversion_description": null,
+      "formula_description": null,
+      "result_value": null,
+      "result_unit": null,
+      "status": "missing_activity_data",
+      "message": "Quantity is required before this activity can be calculated.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": null,
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-03-05\", \"activity_name\": \"Refrigerant top-up (quantity not yet available)\", \"category\": \"refrigerants\", \"created_at\": \"2026-10-31T16:27:03.781719+00:00\", \"factory_id\": 1, \"id\": 12, \"notes\": \"Fictional demonstration record (quantity missing on purpose)\", \"provenance\": \"synthetic_demo\", \"quantity\": null, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-REF-001\", \"source_row_reference\": null, \"status\": \"missing_activity_data\", \"unit\": \"kg\", \"updated_at\": \"2026-10-31T16:27:03.781719+00:00\"}",
+      "factor_snapshot_json": null,
+      "warnings_json": "[]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-03-05",
+        "activity_name": "Refrigerant top-up (quantity not yet available)",
+        "category": "refrigerants",
+        "created_at": "2026-10-31T16:27:03.781719+00:00",
+        "factory_id": 1,
+        "id": 12,
+        "notes": "Fictional demonstration record (quantity missing on purpose)",
+        "provenance": "synthetic_demo",
+        "quantity": null,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-REF-001",
+        "source_row_reference": null,
+        "status": "missing_activity_data",
+        "unit": "kg",
+        "updated_at": "2026-10-31T16:27:03.781719+00:00"
+      },
+      "factor_snapshot": null,
+      "warnings": [],
+      "recomputed_kg": null,
+      "recompute_matches": null,
+      "plain_formula": null,
+      "source_reference": "DEMO-REF-001",
+      "activity_name": "Refrigerant top-up (quantity not yet available)",
+      "activity_date": "2026-03-05",
+      "category": "refrigerants",
+      "category_label": "Refrigerants",
+      "fictional": true,
+      "factor_source": null,
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    },
+    {
+      "id": 9,
+      "snapshot_id": 1,
+      "activity_record_id": 9,
+      "factor_id": "EF-DIESEL-DEMO-001",
+      "input_quantity_snapshot": 0.9,
+      "input_unit_snapshot": "kL",
+      "factor_value_snapshot": 2.5,
+      "factor_numerator_unit_snapshot": "kgCO2e",
+      "factor_denominator_unit_snapshot": "L",
+      "conversion_description": "Activity quantity converted kL \u2192 L (\u00d7 1000).",
+      "formula_description": "Emissions (kgCO2e) = quantity (0.9 kL) \u00d7 1000 [kL\u2192L] \u00d7 factor (2.5 kgCO2e/L) = 2250 kgCO2e",
+      "result_value": 2250.0,
+      "result_unit": "kgCO2e",
+      "status": "calculated",
+      "message": "Calculated.",
+      "provenance_snapshot": {
+        "activity": "synthetic_demo",
+        "factor": "synthetic_demo",
+        "result": "derived"
+      },
+      "activity_snapshot_json": "{\"activity_date\": \"2026-03-10\", \"activity_name\": \"Generator diesel\", \"category\": \"diesel\", \"created_at\": \"2026-10-31T16:27:03.781444+00:00\", \"factory_id\": 1, \"id\": 9, \"notes\": \"Fictional demonstration record (kL on purpose, to demonstrate a recorded unit conversion)\", \"provenance\": \"synthetic_demo\", \"quantity\": 0.9, \"reporting_period_id\": 2, \"source_reference\": \"DEMO-DSL-003\", \"source_row_reference\": null, \"status\": \"valid\", \"unit\": \"kL\", \"updated_at\": \"2026-10-31T16:27:03.781444+00:00\"}",
+      "factor_snapshot_json": "{\"applicable_year\": null, \"category\": \"diesel\", \"created_at\": \"2026-10-31T16:27:03.780328+00:00\", \"denominator_unit\": \"L\", \"gas_basis\": \"CO2e (synthetic)\", \"geography\": \"Synthetic demonstration only\", \"id\": \"EF-DIESEL-DEMO-001\", \"is_active\": 1, \"name\": \"Synthetic diesel emissions factor\", \"notes\": \"Fictional round number chosen for the demo. NOT a published diesel factor. Not for real reporting.\", \"numerator_unit\": \"kgCO2e\", \"provenance\": \"synthetic_demo\", \"publication_date\": null, \"source_document\": null, \"source_organization\": null, \"source_reference\": null, \"source_url\": null, \"status\": \"illustrative\", \"updated_at\": \"2026-10-31T16:27:03.780328+00:00\", \"value\": 2.5}",
+      "warnings_json": "[\"Factor is illustrative \\u2014 not for real reporting.\", \"The result shown is based on synthetic demonstration data.\"]",
+      "engine_version": "0.1.0",
+      "calculated_at": "2026-10-31T16:27:03.782260+00:00",
+      "activity_snapshot": {
+        "activity_date": "2026-03-10",
+        "activity_name": "Generator diesel",
+        "category": "diesel",
+        "created_at": "2026-10-31T16:27:03.781444+00:00",
+        "factory_id": 1,
+        "id": 9,
+        "notes": "Fictional demonstration record (kL on purpose, to demonstrate a recorded unit conversion)",
+        "provenance": "synthetic_demo",
+        "quantity": 0.9,
+        "reporting_period_id": 2,
+        "source_reference": "DEMO-DSL-003",
+        "source_row_reference": null,
+        "status": "valid",
+        "unit": "kL",
+        "updated_at": "2026-10-31T16:27:03.781444+00:00"
+      },
+      "factor_snapshot": {
+        "applicable_year": null,
+        "category": "diesel",
+        "created_at": "2026-10-31T16:27:03.780328+00:00",
+        "denominator_unit": "L",
+        "gas_basis": "CO2e (synthetic)",
+        "geography": "Synthetic demonstration only",
+        "id": "EF-DIESEL-DEMO-001",
+        "is_active": 1,
+        "name": "Synthetic diesel emissions factor",
+        "notes": "Fictional round number chosen for the demo. NOT a published diesel factor. Not for real reporting.",
+        "numerator_unit": "kgCO2e",
+        "provenance": "synthetic_demo",
+        "publication_date": null,
+        "source_document": null,
+        "source_organization": null,
+        "source_reference": null,
+        "source_url": null,
+        "status": "illustrative",
+        "updated_at": "2026-10-31T16:27:03.780328+00:00",
+        "value": 2.5
+      },
+      "warnings": [
+        "Factor is illustrative \u2014 not for real reporting.",
+        "The result shown is based on synthetic demonstration data."
+      ],
+      "recomputed_kg": 2250.0,
+      "recompute_matches": true,
+      "plain_formula": "0.9 kL = 900 L \u00d7 2.50 kgCO\u2082e/L = 2,250 kg",
+      "source_reference": "DEMO-DSL-003",
+      "activity_name": "Generator diesel",
+      "activity_date": "2026-03-10",
+      "category": "diesel",
+      "category_label": "Diesel combustion",
+      "fictional": true,
+      "factor_source": "No source recorded",
+      "snapshot_created_at": "2026-10-31T16:27:03.782260+00:00",
+      "reporting_mode": "demo",
+      "stale": false
+    }
+  ],
+  "activities": [
+    {
+      "id": 4,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-01-01",
+      "category": "purchased_electricity",
+      "activity_name": "Grid electricity",
+      "quantity": 12500.0,
+      "unit": "kWh",
+      "source_reference": "DEMO-BILL-001",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.780903+00:00",
+      "updated_at": "2026-10-31T16:27:03.780903+00:00"
+    },
+    {
+      "id": 7,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-01-15",
+      "category": "diesel",
+      "activity_name": "Generator diesel",
+      "quantity": 800.0,
+      "unit": "L",
+      "source_reference": "DEMO-DSL-001",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.781242+00:00",
+      "updated_at": "2026-10-31T16:27:03.781242+00:00"
+    },
+    {
+      "id": 5,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-02-01",
+      "category": "purchased_electricity",
+      "activity_name": "Grid electricity",
+      "quantity": 13100.0,
+      "unit": "kWh",
+      "source_reference": "DEMO-BILL-002",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.781016+00:00",
+      "updated_at": "2026-10-31T16:27:03.781016+00:00"
+    },
+    {
+      "id": 8,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-02-12",
+      "category": "diesel",
+      "activity_name": "Generator diesel",
+      "quantity": 750.0,
+      "unit": "L",
+      "source_reference": "DEMO-DSL-002",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.781352+00:00",
+      "updated_at": "2026-10-31T16:27:03.781352+00:00"
+    },
+    {
+      "id": 10,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-02-20",
+      "category": "other_fossil_fuels",
+      "activity_name": "Coal for boiler start-up (fictional)",
+      "quantity": 12.0,
+      "unit": "t",
+      "source_reference": "DEMO-FUEL-001",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record (no factor in the library on purpose, so it stays unresolved)",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.781533+00:00",
+      "updated_at": "2026-10-31T16:27:03.781533+00:00"
+    },
+    {
+      "id": 11,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-02-28",
+      "category": "bagasse_combustion",
+      "activity_name": "Bagasse burned in boiler (fictional)",
+      "quantity": 1800.0,
+      "unit": "t",
+      "source_reference": "DEMO-BAG-001",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record (bagasse is not assessed in the MVP)",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.781628+00:00",
+      "updated_at": "2026-10-31T16:27:03.781628+00:00"
+    },
+    {
+      "id": 6,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-03-01",
+      "category": "purchased_electricity",
+      "activity_name": "Grid electricity",
+      "quantity": 20400.0,
+      "unit": "kWh",
+      "source_reference": "DEMO-BILL-003",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record (deliberately high month to demonstrate an outlier flag)",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.781103+00:00",
+      "updated_at": "2026-10-31T16:27:03.781103+00:00"
+    },
+    {
+      "id": 12,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-03-05",
+      "category": "refrigerants",
+      "activity_name": "Refrigerant top-up (quantity not yet available)",
+      "quantity": null,
+      "unit": "kg",
+      "source_reference": "DEMO-REF-001",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record (quantity missing on purpose)",
+      "status": "missing_activity_data",
+      "created_at": "2026-10-31T16:27:03.781719+00:00",
+      "updated_at": "2026-10-31T16:27:03.781719+00:00"
+    },
+    {
+      "id": 9,
+      "factory_id": 1,
+      "reporting_period_id": 2,
+      "activity_date": "2026-03-10",
+      "category": "diesel",
+      "activity_name": "Generator diesel",
+      "quantity": 0.9,
+      "unit": "kL",
+      "source_reference": "DEMO-DSL-003",
+      "source_row_reference": null,
+      "provenance": "synthetic_demo",
+      "notes": "Fictional demonstration record (kL on purpose, to demonstrate a recorded unit conversion)",
+      "status": "valid",
+      "created_at": "2026-10-31T16:27:03.781444+00:00",
+      "updated_at": "2026-10-31T16:27:03.781444+00:00"
+    }
+  ],
+  "factors": [
+    {
+      "id": "EF-DIESEL-DEMO-001",
+      "name": "Synthetic diesel emissions factor",
+      "category": "diesel",
+      "value": 2.5,
+      "numerator_unit": "kgCO2e",
+      "denominator_unit": "L",
+      "gas_basis": "CO2e (synthetic)",
+      "geography": "Synthetic demonstration only",
+      "applicable_year": null,
+      "source_organization": null,
+      "source_document": null,
+      "source_url": null,
+      "source_reference": null,
+      "publication_date": null,
+      "status": "illustrative",
+      "provenance": "synthetic_demo",
+      "is_active": 1,
+      "notes": "Fictional round number chosen for the demo. NOT a published diesel factor. Not for real reporting.",
+      "created_at": "2026-10-31T16:27:03.780328+00:00",
+      "updated_at": "2026-10-31T16:27:03.780328+00:00"
+    },
+    {
+      "id": "EF-ELECTRICITY-DEMO-001",
+      "name": "Synthetic electricity emissions factor",
+      "category": "purchased_electricity",
+      "value": 0.7,
+      "numerator_unit": "kgCO2e",
+      "denominator_unit": "kWh",
+      "gas_basis": "CO2e (synthetic)",
+      "geography": "Synthetic demonstration only",
+      "applicable_year": null,
+      "source_organization": null,
+      "source_document": null,
+      "source_url": null,
+      "source_reference": null,
+      "publication_date": null,
+      "status": "illustrative",
+      "provenance": "synthetic_demo",
+      "is_active": 1,
+      "notes": "Fictional demonstration value. NOT a current Indian grid factor. Not for real reporting.",
+      "created_at": "2026-10-31T16:27:03.779980+00:00",
+      "updated_at": "2026-10-31T16:27:03.779980+00:00"
+    }
+  ],
+  "snapshots": [
+    {
+      "id": 1,
+      "created_at": "2026-10-31T16:27:03.782260+00:00",
+      "engine_version": "0.1.0",
+      "reporting_mode": "demo",
+      "inventory_status": "incomplete",
+      "assessed_total_kg_co2e": 38325.0,
+      "unresolved_count": 10
+    }
+  ],
+  "report_markdown": "# CarbonOS Sugar \u2014 Emissions Report (snapshot #1)\n\n> **SYNTHETIC DEMONSTRATION \u2014 fictional activity data and illustrative factor. Not suitable for real factory reporting.**\n\n- **Factory:** DEMO Sugar Mill (FICTIONAL) (Fictional location \u2014 not a real facility)\n- **Reporting period:** 2026-01-01 to 2026-03-31\n- **Boundary (as entered):** FICTIONAL demo boundary: factory-gate purchased electricity and diesel records only. Other categories are shown as not assessed.\n- **Calculated at (UTC):** 2026-10-31T16:27:03.782260+00:00  |  **Engine version:** 0.1.0  |  **Mode:** demo\n\n## Inventory status\n\n**INCOMPLETE INVENTORY.** The figure below is a *partial assessed total*, not the factory's total emissions.\n\n- **Partial assessed total:** 38,325.000 kgCO2e (38.32500 tCO2e)\n- Of which based on synthetic/illustrative inputs: 38,325.000 kgCO2e\n- Records calculated: 6; needing review: 0; not calculated: 3\n- Unresolved categories: other_fossil_fuels, bagasse_combustion, purchased_steam_energy, cane_transport, wastewater_effluent, refrigerants, other_sources\n\n## Category summary\n\n| category_name | activity_records | calculated_records | unresolved_records | assessed_emissions | unit | completeness_status |\n|---|---|---|---|---|---|---|\n| Purchased electricity | 3 | 3 | 0 | 32200.0 | kgCO2e | all_records_calculated |\n| Diesel combustion | 3 | 3 | 0 | 6125.0 | kgCO2e | all_records_calculated |\n| Other fossil fuels | 1 | 0 | 1 |  | kgCO2e | unresolved |\n| Bagasse combustion | 1 | 0 | 1 |  | kgCO2e | not_assessed |\n| Purchased steam or other energy | 0 | 0 | 0 |  | kgCO2e | not_assessed |\n| Cane transport | 0 | 0 | 0 |  | kgCO2e | not_assessed |\n| Wastewater and effluent | 0 | 0 | 0 |  | kgCO2e | not_assessed |\n| Refrigerants | 1 | 0 | 1 |  | kgCO2e | unresolved |\n| Other sources | 0 | 0 | 0 |  | kgCO2e | not_assessed |\n\n## Energy indicators (factory-wide)\n\n- Electricity per tonne of cane crushed: 9.2 kWh/t cane crushed\n- Electricity per tonne of sugar produced: 92 kWh/t sugar produced\n- Diesel per tonne of cane crushed: 0.49 L/t cane crushed\n\n## Provenance summary\n\n- Activity records by provenance: {\"synthetic_demo\": 9}\n- Calculated results by factor provenance: {\"synthetic_demo\": 6}\n- Derived results (calculated from stored values): 6\n- Missing or unresolved: 3 records, 7 categories\n\n## Calculation details\n\n| activity_record_id | activity_date | category | quantity | input_unit | factor_id | factor_value | result | result_unit | calculation_status | activity_provenance |\n|---|---|---|---|---|---|---|---|---|---|---|\n| 4 | 2026-01-01 | purchased_electricity | 12500.0 | kWh | EF-ELECTRICITY-DEMO-001 | 0.7 | 8750.0 | kgCO2e | calculated | synthetic_demo |\n| 7 | 2026-01-15 | diesel | 800.0 | L | EF-DIESEL-DEMO-001 | 2.5 | 2000.0 | kgCO2e | calculated | synthetic_demo |\n| 5 | 2026-02-01 | purchased_electricity | 13100.0 | kWh | EF-ELECTRICITY-DEMO-001 | 0.7 | 9170.0 | kgCO2e | calculated | synthetic_demo |\n| 8 | 2026-02-12 | diesel | 750.0 | L | EF-DIESEL-DEMO-001 | 2.5 | 1875.0 | kgCO2e | calculated | synthetic_demo |\n| 10 | 2026-02-20 | other_fossil_fuels | 12.0 | t |  |  |  |  | missing_factor | synthetic_demo |\n| 11 | 2026-02-28 | bagasse_combustion | 1800.0 | t |  |  |  |  | not_assessed | synthetic_demo |\n| 6 | 2026-03-01 | purchased_electricity | 20400.0 | kWh | EF-ELECTRICITY-DEMO-001 | 0.7 | 14280.0 | kgCO2e | calculated | synthetic_demo |\n| 12 | 2026-03-05 | refrigerants |  | kg |  |  |  |  | missing_activity_data | synthetic_demo |\n| 9 | 2026-03-10 | diesel | 0.9 | kL | EF-DIESEL-DEMO-001 | 2.5 | 2250.0 | kgCO2e | calculated | synthetic_demo |\n\n## Factor references\n\n| id | value | numerator_unit | denominator_unit | status | provenance | source_organization |\n|---|---|---|---|---|---|---|\n| EF-ELECTRICITY-DEMO-001 | 0.7 | kgCO2e | kWh | illustrative | synthetic_demo |  |\n| EF-DIESEL-DEMO-001 | 2.5 | kgCO2e | L | illustrative | synthetic_demo |  |\n\n## Data-quality flags\n\n- [high] **FUEL_NO_FACTOR** \u2014 Fuel record #10 (Coal for boiler start-up (fictional)) has no usable emission factor. _Why flagged: Fuel use is recorded but no factor is available, so it contributes no calculated emissions._\n- [high] **MISSING_QUANTITY** \u2014 Record #12 (Refrigerant top-up (quantity not yet available)) has no quantity. _Why flagged: Missing activity data is not treated as zero; the record cannot be calculated._\n- [medium] **FACTOR_NOT_APPROVED** \u2014 Factor EF-ELECTRICITY-DEMO-001 is marked 'illustrative' and was used by 3 record(s): #4, #5, #6. _Why flagged: Factors that are illustrative or need review are not approved for real reporting._\n- [medium] **FACTOR_NOT_APPROVED** \u2014 Factor EF-DIESEL-DEMO-001 is marked 'illustrative' and was used by 3 record(s): #7, #8, #9. _Why flagged: Factors that are illustrative or need review are not approved for real reporting._\n- [medium] **OUTLIER_VS_MEDIAN** \u2014 Record #6 (Grid electricity, 2026-03-01) is 56% above the median of this period's purchased electricity records. _Why flagged: Compared with the median (13100 kWh) of 3 records; threshold \u00b150%. This does not establish a fault._\n- [medium] **INTENSITY_CHANGE** \u2014 Electricity per tonne of cane crushed changed by +45% versus previous period 2025-10-01 to 2025-12-31 (6.346 \u2192 9.2 kWh/t cane crushed). _Why flagged: Threshold \u00b120%. Boundaries and production units are user-entered; confirm they are comparable before drawing conclusions._\n- [medium] **INTENSITY_CHANGE** \u2014 Electricity per tonne of sugar produced changed by +45% versus previous period 2025-10-01 to 2025-12-31 (63.46 \u2192 92 kWh/t sugar produced). _Why flagged: Threshold \u00b120%. Boundaries and production units are user-entered; confirm they are comparable before drawing conclusions._\n\n## Recommendations\n\n### Obtain the missing quantity for record #12 (observation)\n\n- **Observation:** Record #12 (Refrigerant top-up (quantity not yet available)) has no quantity.\n- **Evidence:** Record exists without a quantity.\n- **Why it matters:** Missing data is not zero; the inventory stays incomplete until it is supplied.\n- **Suggested action:** Locate the source record (log, invoice, maintenance entry) and enter the quantity.\n- **Expected benefit:** Not applicable (data completeness).\n- **Confidence:** High that data is missing\n- **Assumptions:** The activity actually occurred in this period.\n- **Verification:** Check the entered value against the source document.\n- **Required additional data:** The missing quantity and its source.\n- **Limitation:** None.\n\n### Check record #6 against its source document (observation)\n\n- **Observation:** Record #6 (Grid electricity, 2026-03-01) is 56% above the median of this period's purchased electricity records.\n- **Evidence:** Compared with the median (13100 kWh) of 3 records; threshold \u00b150%. This does not establish a fault.\n- **Why it matters:** An unusual value may be a genuine operating event or a data-entry or billing issue.\n- **Suggested action:** Compare the record with the original bill or log and with operating events in that month.\n- **Expected benefit:** Not quantified.\n- **Confidence:** Preliminary\n- **Assumptions:** Other records in the period are representative.\n- **Verification:** Confirm against the source document and meter readings.\n- **Required additional data:** Original bill/log; operating log for the period.\n- **Limitation:** A deviation from the median is not proof of a fault.\n\n### Investigate an increase in energy intensity (observation)\n\n- **Observation:** Electricity per tonne of cane crushed changed by +45% versus previous period 2025-10-01 to 2025-12-31 (6.346 \u2192 9.2 kWh/t cane crushed).\n- **Evidence:** Recorded energy and production values for both periods (see Calculations).\n- **Why it matters:** A change in energy per unit of production can indicate operating, metering or data differences.\n- **Suggested action:** Review operating schedules, equipment loading, maintenance and metering for both periods.\n- **Expected benefit:** Not quantified \u2014 no supportable estimate from the available data.\n- **Confidence:** Preliminary\n- **Assumptions:** Both periods use comparable boundaries and production definitions.\n- **Verification:** Compare validated meter readings and production records over a consistent operating period.\n- **Required additional data:** Validated meter data; production data on a consistent basis.\n- **Limitation:** This observation does not establish the cause of the change.\n\n### Investigate an increase in energy intensity (observation)\n\n- **Observation:** Electricity per tonne of sugar produced changed by +45% versus previous period 2025-10-01 to 2025-12-31 (63.46 \u2192 92 kWh/t sugar produced).\n- **Evidence:** Recorded energy and production values for both periods (see Calculations).\n- **Why it matters:** A change in energy per unit of production can indicate operating, metering or data differences.\n- **Suggested action:** Review operating schedules, equipment loading, maintenance and metering for both periods.\n- **Expected benefit:** Not quantified \u2014 no supportable estimate from the available data.\n- **Confidence:** Preliminary\n- **Assumptions:** Both periods use comparable boundaries and production definitions.\n- **Verification:** Compare validated meter readings and production records over a consistent operating period.\n- **Required additional data:** Validated meter data; production data on a consistent basis.\n- **Limitation:** This observation does not establish the cause of the change.\n\n### Close inventory gaps (generic suggestion) (generic)\n\n- **Observation:** These categories are not fully assessed: Other fossil fuels, Bagasse combustion, Purchased steam or other energy, Cane transport, Wastewater and effluent, Refrigerants, Other sources.\n- **Evidence:** Category summary in the snapshot.\n- **Why it matters:** The assessed total is partial and cannot be read as the factory's complete emissions.\n- **Suggested action:** For each category, collect activity data and source a documented, verified factor, or declare it outside the boundary with a reason.\n- **Expected benefit:** Not quantified.\n- **Confidence:** N/A (generic)\n- **Assumptions:** Each listed category is relevant to the mill's boundary.\n- **Verification:** Reviewer reproduces each category from source records and factors.\n- **Required additional data:** Activity records and verified factors per category.\n- **Limitation:** Generic suggestion, not derived from a specific observation.\n\n### Add sub-metering to enable process-stage analysis (generic suggestion) (generic)\n\n- **Observation:** Electricity is recorded at factory level only.\n- **Evidence:** Activity records cover whole-factory bills.\n- **Why it matters:** Process-stage allocation requires stage-level measurements; none are assumed here.\n- **Suggested action:** Identify whether existing sub-meters (e.g. cane preparation, mills, evaporation) can be logged.\n- **Expected benefit:** Not quantified.\n- **Confidence:** N/A (generic)\n- **Assumptions:** Sub-meters exist or can be installed.\n- **Verification:** Sum of sub-meters reconciles with the main meter.\n- **Required additional data:** Stage-level meter readings.\n- **Limitation:** Generic suggestion, not derived from the recorded data.\n\n## Assumptions\n\n- Emissions (kgCO2e) = activity quantity \u00d7 emission factor; only explicitly defined unit conversions are applied and recorded.\n- Missing quantities, missing factors and unsupported categories are reported as unresolved and are never treated as zero.\n- Electricity is reported at factory level; no allocation to process stages is made.\n- Bagasse (biogenic) and wastewater categories are not assessed in this prototype.\n- Category 'all_records_calculated' means every recorded record calculated; it does not verify that records cover the whole period.\n- Reporting boundary and production quantities are as entered by the user and have not been verified.\n\n## Limitations\n\nThis report reflects the activity data, emission factors, and reporting boundary recorded in CarbonOS Sugar at the time of calculation. Results may be incomplete where activity data, emission factors, or categories have not been assessed. Synthetic demonstration records and illustrative factors are not suitable for real-world reporting. This prototype has not been independently verified or certified, has not been validated in an operating sugar mill, and its audit history is an ordinary database table, not tamper-proof. Users must review the methodology, source factors, and boundary before using results for external disclosure.\n",
+  "sample_csv": "activity_date,category,activity_name,quantity,unit,source_reference,provenance,notes\n2026-01-01,purchased_electricity,Grid electricity,12500,kWh,DEMO-BILL-001,synthetic_demo,Fictional demonstration record\n2026-02-01,purchased_electricity,Grid electricity,13100,kWh,DEMO-BILL-002,synthetic_demo,Fictional demonstration record\n2026-03-01,purchased_electricity,Grid electricity,20400,kWh,DEMO-BILL-003,synthetic_demo,Fictional demonstration record (deliberately high month to demonstrate an outlier flag)\n2026-01-15,diesel,Generator diesel,800,L,DEMO-DSL-001,synthetic_demo,Fictional demonstration record\n2026-02-12,diesel,Generator diesel,750,L,DEMO-DSL-002,synthetic_demo,Fictional demonstration record\n2026-03-10,diesel,Generator diesel,0.9,kL,DEMO-DSL-003,synthetic_demo,\"Fictional demonstration record (kL on purpose, to demonstrate a recorded unit conversion)\"\n2026-02-20,other_fossil_fuels,Coal for boiler start-up (fictional),12,t,DEMO-FUEL-001,synthetic_demo,\"Fictional demonstration record (no factor in the library on purpose, so it stays unresolved)\"\n2026-02-28,bagasse_combustion,Bagasse burned in boiler (fictional),1800,t,DEMO-BAG-001,synthetic_demo,Fictional demonstration record (bagasse is not assessed in the MVP)\n",
+  "sample_csv_with_errors": "activity_date,category,activity_name,quantity,unit,source_reference,provenance,notes\n2026-03-15,purchased_electricity,Grid electricity,8000,kWh,DEMO-BILL-004,synthetic_demo,VALID row\n2026-13-45,purchased_electricity,Grid electricity,9000,kWh,DEMO-BAD-01,synthetic_demo,ERROR: invalid date\n2026-03-16,purchased_electricity,Grid electricity,abc,kWh,DEMO-BAD-02,synthetic_demo,ERROR: non-numeric quantity\n2026-03-17,purchased_electricity,Grid electricity,9000,gallons,DEMO-BAD-03,synthetic_demo,ERROR: unknown unit\n2026-03-18,steam_misc,Mystery steam,50,t,DEMO-BAD-04,synthetic_demo,ERROR: unknown category\n2026-03-19,diesel,Generator diesel,-5,L,DEMO-BAD-05,synthetic_demo,ERROR: negative quantity\n2026-03-20,purchased_electricity,Grid electricity,\"12,500\",kWh,DEMO-BAD-06,synthetic_demo,ERROR: comma in quantity\n2027-01-05,purchased_electricity,Grid electricity,9000,kWh,DEMO-BAD-07,synthetic_demo,ERROR: outside period\n2026-03-21,diesel,Generator diesel,300,L,DEMO-DSL-004,synthetic_demo,VALID row\n2026-03-21,diesel,Generator diesel,300,L,DEMO-DSL-004,synthetic_demo,ERROR: duplicate of previous row\n",
+  "hand_check": {
+    "electricity_kwh": 46000,
+    "electricity_kg": 32200,
+    "diesel_l": 2450,
+    "diesel_kg": 6125,
+    "partial_kg": 38325,
+    "partial_t": 38.325,
+    "note": "Electricity 46,000 kWh \u00d7 0.70 = 32,200 kg; diesel 800 + 750 L + 0.9 kL (=900 L) \u00d7 2.50 = 6,125 kg; partial assessed total 38,325 kg = 38.325 t CO\u2082e \u2014 fictional, illustrative factors."
+  }
+}

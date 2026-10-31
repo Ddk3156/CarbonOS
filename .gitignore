@@ -1,4 +1,9 @@
 # Environments and caches
+node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+carbonos-demo.db
 .venv/
 venv/
 __pycache__/

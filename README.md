@@ -70,3 +70,21 @@ wastewater; sub-meter data; React/FastAPI/PostgreSQL migration; field validation
 
 ## License
 None selected yet.
+
+## Pitch demo (React front end)
+The judge-facing demo lives in `web/` (Vite, React, TypeScript, Tailwind, Framer Motion, Recharts, cmdk) and talks to
+`api/server.py` (FastAPI wrapping the unchanged Python engine). Works offline: if the API is unreachable it falls back to
+`web/public/fallback/bootstrap.json`.
+
+```bash
+npm run setup      # once: pip install -r requirements.txt && npm --prefix web install
+npm run demo       # starts API :8000 and web :5173, open http://127.0.0.1:5173
+npm run fallback   # regenerate the offline JSON after changing seed data
+npm run test:e2e   # Playwright (resets the demo first, fails on any console error)
+npm run test:e2e:10  # 10 consecutive runs
+```
+* Budget numbers come only from `pitch.config.json`. The old deck said Rs 30,000; the pitch uses Rs 60,000.
+  Set `"showReconcileNote": true` to show a presenter warning on the Ask screen until you have reconciled them.
+* "Add a fictional demo factor" (Mill, coal gap) adds one unsourced, clearly fictional factor so a gap can close live.
+  `Reset demo` (Data room, or Ctrl/Cmd+K) restores the starting state.
+* Real 90 s tour test: `FULL_TOUR=1 npm run test:e2e`.

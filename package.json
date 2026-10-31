@@ -1,0 +1,12 @@
+{
+  "name": "carbonos-sugar-demo",
+  "private": true,
+  "scripts": {
+    "demo": "npm --prefix web install && npm --prefix web run demo",
+    "dev": "npm --prefix web run demo",
+    "test:e2e": "npm --prefix web run test:e2e",
+    "test:e2e:10": "npm --prefix web run test:e2e:10",
+    "setup": "python3 -m pip install -r requirements.txt && npm --prefix web install",
+    "fallback": "python3 api/dump_fallback.py"
+  }
+}

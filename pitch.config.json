@@ -1,0 +1,43 @@
+{
+  "currency": "INR",
+  "pilotAmountInr": 60000,
+  "previousDeckAmountInr": 30000,
+  "timelineDays": 45,
+  "reconcileNote": "The research deck listed Rs 30,000 for the pilot. This pitch uses Rs 60,000. Edit this file before presenting; do not change the number in the UI.",
+  "whyPilot": "The calculation engine, CSV contract, reverse trace, and honesty rules already exist and are covered by tests. A pilot is to validate them against one mill's real bills and attested factors — not to invent a new total.",
+  "unlocks": [
+    "One mill field validation using their electricity and fuel bills (this demo stays fictional).",
+    "Operator walkthrough of reverse trace: every assessed number back to its source record.",
+    "Replace illustrative demo factors with mill-sourced, attested factors. Starting points named in METHODOLOGY.md (CEA, TERI, GHG Protocol) are not bundled values.",
+    "Keep the existing Python engine; the 45 days are for validation and factor attestation, not rewriting arithmetic."
+  ],
+  "timeline": [
+    {
+      "days": "1–10",
+      "label": "Ingest mill bills into the existing CSV contract; record gaps as unresolved, never zero."
+    },
+    {
+      "days": "11–30",
+      "label": "Source and attest factors with organisation, document, year, geography; keep illustrative factors blocked in real-reporting mode."
+    },
+    {
+      "days": "31–45",
+      "label": "Reproduce totals from stored snapshots, export the bundle, and write what is still not assessed (bagasse, wastewater, Scope 3)."
+    }
+  ],
+  "validated": [
+    "Exact-decimal quantity × factor with recorded unit conversions only",
+    "Missing data and missing factors never become zero",
+    "Partial totals labelled Partial",
+    "Immutable calculation snapshots and reverse recompute check",
+    "CSV import with row-level rejections, nothing dropped silently"
+  ],
+  "notValidated": [
+    "Not validated in an operating mill; no partner mill in this prototype",
+    "Not independently verified or certified",
+    "No real emission factors are bundled",
+    "Bagasse/biogenic, wastewater, stage allocation, product footprints, Scope 3 are not implemented",
+    "Audit history is an ordinary SQLite table, not tamper-proof"
+  ],
+  "showReconcileNote": false
+}
