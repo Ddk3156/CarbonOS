@@ -1,4 +1,4 @@
-CarbonOS Sugar
+<b>CarbonOS Sugar</b>
 
 Traceable Carbon Accounting & Energy Performance Intelligence for the Sugar Industry
 
@@ -6,7 +6,7 @@ Turning fragmented industrial activity data into transparent, traceable, and rev
 
 <p align="center">
   <strong>Industrial Sustainability · Carbon Accounting · Energy Analytics · Audit Traceability</strong>
-</p>---
+</p>
 
 1. Overview
 
@@ -19,8 +19,6 @@ Built around the workflow proposed in the CarbonOS Industrial research concept, 
 Every calculated result can be traced back to its original activity record, emission factor, calculation methodology, unit conversion, and data provenance.
 
 «Prototype Disclosure: CarbonOS Sugar is a research and demonstration prototype. It has not been validated in an operating sugar mill, independently verified, or certified. All bundled demonstration data is fictional.»
-
----
 
 2. The Problem
 
