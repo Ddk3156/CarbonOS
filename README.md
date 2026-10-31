@@ -1,480 +1,413 @@
-<b>CarbonOS Sugar</b>
+::: {align="center"}
+# 🌱 CarbonOS Sugar
+
+### A Decision Support System for Traceable Carbon Accounting in Sugar Mills
+
+**From factory data to trusted carbon insights.**
+
+![Domain](https://img.shields.io/badge/Domain-Industrial%20Sustainability-176B4D)
+![Focus](https://img.shields.io/badge/Focus-Carbon%20Accounting%20%7C%20Energy%20Analytics-246B8E)
+![Status](https://img.shields.io/badge/Status-Prototype%20%7C%20Pilot%20Concept-D99A2B)
+
+*Turning operational records into explainable emissions calculations,
+energy-performance indicators, and actionable decision support.*
+:::
+
+------------------------------------------------------------------------
+
+## The idea
+
+Sugar mills are complex, energy-intensive facilities. Their operational
+information is often distributed across electricity bills, fuel logs,
+production records, weighbridge data, and other documents. Turning these
+records into a consistent view of energy use and greenhouse-gas
+emissions can be difficult.
+
+**CarbonOS Sugar** is a software-first concept designed to bring these
+inputs into one transparent workflow. It aims to help a sugar mill
+organise factory activity data, calculate emissions using documented
+factors, understand energy and emissions intensity, identify
+data-quality gaps, and explore practical improvement opportunities.
+
+> **Our central principle:** a carbon number should not be a black box.
+> Every result should be explainable, reviewable, and reproducible from
+> its underlying inputs.
+
+## Why CarbonOS Sugar?
+
+  -----------------------------------------------------------------------
+  Challenge                           Our approach
+  ----------------------------------- -----------------------------------
+  Operational data is fragmented      Bring manual records and CSV data
+                                      into a common workflow.
+
+  Emissions calculations can be       Connect activity data, factor
+  difficult to verify                 references, units, assumptions, and
+                                      calculation details.
+
+  Reports do not always translate     Present energy indicators,
+  into action                         data-quality flags, and
+                                      evidence-based recommendations
+                                      through a Decision Support System
+                                      (DSS).
+  -----------------------------------------------------------------------
+
+## How it works
+
+``` mermaid
+flowchart TD
+    A([Start]) --> B[/Factory activity data<br/>Manual entry or CSV/]
+    B --> C[Validate data<br/>Completeness · Units · Quality]
+    C --> D{Data valid?}
+    D -- No --> E[Flag issue<br/>Correct or mark unresolved]
+    E --> B
+    D -- Yes --> F[Map activities to applicable factors]
+    F --> G[Calculate emissions<br/>and aggregate supported categories]
+    G --> H{Coverage sufficient?}
+    H -- No --> I[Show partial assessment<br/>and unresolved categories]
+    H -- Yes --> J[Analyse performance]
+    I --> J
+    J --> K[Decision Support System<br/>Trends · Anomalies · Recommendations]
+    K --> L[Save calculation snapshot<br/>and traceability information]
+    L --> M[/Dashboard · Reports · Insights/]
+    M --> N([End])
+    L -. source-to-result traceability .-> B
+```
+
+### Workflow
+
+1.  **Ingest** --- collect factory records through manual entry or
+    structured CSV upload.
+2.  **Validate** --- check required fields, dates, units, completeness,
+    and data quality.
+3.  **Map** --- associate supported activities with applicable emission
+    factors.
+4.  **Calculate** --- apply documented formulas and aggregate supported
+    results.
+5.  **Analyse** --- examine energy performance, intensity indicators,
+    trends, and potential anomalies.
+6.  **Support decisions** --- present findings and recommendations with
+    evidence and assumptions.
+7.  **Trace and report** --- retain calculation context so results can
+    be inspected and reproduced.
+
+## Designed for sugar-mill operations
+
+The intended factory-level boundary can cover multiple operational
+sources, subject to data availability and an appropriate calculation
+method.
+
+  -----------------------------------------------------------------------
+  Area                                Example activity data
+  ----------------------------------- -----------------------------------
+  Purchased electricity               Grid electricity consumption (kWh)
 
-Traceable Carbon Accounting & Energy Performance Intelligence for the Sugar Industry
+  Diesel                              Generator, owned-vehicle, or
+                                      equipment fuel use
 
-Turning fragmented industrial activity data into transparent, traceable, and reviewable emissions intelligence.
+  Other fossil fuels                  Fuel used in boilers and process
+                                      equipment
 
-<p align="center">
-  <strong>Industrial Sustainability · Carbon Accounting · Energy Analytics · Audit Traceability</strong>
-</p>
+  Bagasse                             Quantity combusted; biogenic CO₂
+                                      and non-CO₂ treatment considered
+                                      separately
 
-1. Overview
+  Cane transport                      Transport activity where boundary
+                                      and supporting data are available
 
-CarbonOS Sugar is a prototype industrial carbon-accounting and energy-performance platform designed specifically for sugar manufacturing facilities.
+  Wastewater                          Effluent-treatment activity data
+                                      and applicable parameters
 
-The platform transforms fragmented operational records—including electricity consumption, fuel usage, and production data—into a structured greenhouse gas (GHG) inventory with transparent calculations and end-to-end traceability.
+  Refrigerants                        Refrigerant type and refill or
+                                      leakage records
 
-Built around the workflow proposed in the CarbonOS Industrial research concept, this prototype focuses on demonstrating how industrial facilities can move from disconnected operational records to evidence-based emissions reporting.
+  Purchased energy                    Purchased steam or other supplied
+                                      energy
+
+  Production                          Cane crushed and sugar produced
+  -----------------------------------------------------------------------
 
-Every calculated result can be traced back to its original activity record, emission factor, calculation methodology, unit conversion, and data provenance.
+**Coverage note:** this is an expandable category map, not a claim that
+every category is currently calculated. A category belongs in a
+numerical result only when the required activity data, units, factor,
+and method are available and suitable. Missing or unsupported categories
+are shown as unresolved or not assessed---not silently treated as zero.
 
-«Prototype Disclosure: CarbonOS Sugar is a research and demonstration prototype. It has not been validated in an operating sugar mill, independently verified, or certified. All bundled demonstration data is fictional.»
-
-2. The Problem
-
-Industrial sustainability reporting often relies on operational information distributed across electricity bills, fuel registers, production records, and manually maintained spreadsheets.
-
-This fragmentation creates several challenges:
-
-- Data Fragmentation: Operational information is distributed across multiple records and formats.
-- Limited Traceability: Reported emissions may be difficult to reconcile with their underlying source documents.
-- Calculation Inconsistency: Different units, conversion methods, and emission factors can introduce inconsistencies.
-- Incomplete Reporting: Missing activity data or emission factors can result in misleading inventory totals.
-- Limited Auditability: Reviewing the origin and calculation of individual emissions values can be time-consuming.
-
-The CarbonOS Approach
-
-CarbonOS Sugar introduces a structured workflow that connects operational activity data with emission factors, calculation logic, and reporting outputs.
-
-Instead of presenting emissions as isolated numbers, the platform makes each result reviewable through its underlying evidence and calculation history.
-
----
-
-3. Core Capabilities
-
-All features described below have been implemented and covered by automated tests.
-
-3.1 Industrial Data Management
-
-- Factory and reporting-period configuration.
-- Clearly defined organizational and reporting boundaries.
-- Optional declaration of reporting exclusions.
-- Manual activity-data entry.
-- CSV-based bulk data ingestion.
-- Import preview and row-level validation.
-- Explicit error reporting without silently discarding records.
-
-3.2 Emission Factor Management
-
-- Centralized emission-factor library.
-- Factor status and provenance tracking.
-- Source documentation and factor metadata.
-- Separation of illustrative and reporting-eligible factors.
-- Illustrative factors are blocked in real-reporting mode.
-
-Factor Integrity: No real emission factors are bundled with the prototype. Users must independently source and verify factors before using them for actual reporting.
-
-3.3 Calculation Engine
-
-- Independent Python calculation engine, separated from the user interface.
-- Exact-decimal arithmetic for calculation accuracy.
-- Unit validation and supported unit conversions.
-- Factor-based emissions calculations.
-- Explicit handling of incomplete and unsupported records.
-
-The platform follows an important reporting principle:
-
-Missing information is never interpreted as zero emissions.
-
-Missing activity data, unavailable emission factors, and unsupported categories remain explicitly unresolved.
-
-Where applicable, calculated totals are labelled Partial, preventing incomplete inventories from being presented as complete assessments.
-
-3.4 Energy Performance Intelligence
-
-The platform calculates factory-level energy-performance indicators wherever sufficient data is available.
-
-Supported indicators include:
-
-Indicator| Measurement
-Electricity intensity per tonne of cane| kWh/t cane
-Electricity intensity per tonne of sugar| kWh/t sugar
-Diesel intensity per tonne of cane| L/t cane
-
-Additional capabilities include:
-
-- Transparent operational anomaly flags.
-- Observation-based recommendations.
-- Clearly labelled generic recommendations where operational observations are unavailable.
-
-3.5 End-to-End Traceability
-
-Traceability is a central design principle of CarbonOS Sugar.
-
-Users can select an emissions result and navigate backwards through its calculation lineage.
-
-Result → Activity Record → Emission Factor Snapshot → Formula → Unit Conversion → Provenance
-
-Each traceability record includes:
-
-- Original activity information.
-- Emission-factor snapshot.
-- Calculation formula.
-- Unit conversion details.
-- Data provenance.
-- Calculation timestamp.
-- Engine version.
-- Immutable calculation snapshot ID.
-- Re-computation verification.
-
-This enables users and reviewers to understand not only the reported emissions value, but also how it was derived.
-
-3.6 Audit and Reporting
-
-- Immutable calculation snapshots.
-- Detection of changes that make previous calculations stale.
-- Historical snapshot comparison.
-- Calculation audit history.
-- CSV exports.
-- Markdown-based reports.
-- ZIP-based reporting bundles generated from stored calculation snapshots.
-
----
-
-4. Technology Stack
-
-Layer| Technology
-Primary Application| Python, Streamlit
-Database| SQLite
-Data Processing| Pandas
-Calculation Engine| Python Decimal
-Testing| Pytest
-Pitch Interface| React, TypeScript
-Frontend Build Tool| Vite
-Styling| Tailwind CSS
-Animation| Framer Motion
-Data Visualization| Recharts
-Command Interface| cmdk
-API Layer| FastAPI
-E2E Testing| Playwright
-
-The original Python calculation engine remains unchanged in the pitch architecture. FastAPI provides an interface for the React frontend to access the underlying application functionality.
-
----
-
-5. Architecture
-
-CarbonOS Sugar follows a modular architecture separating data management, calculation logic, and presentation.
-
-Core Application
-
-Streamlit → Application Logic → Calculation Engine → SQLite
-
-Pitch Demonstration Interface
-
-React Frontend → FastAPI → Existing Python Engine → SQLite
-
-An offline demonstration mode is also available through a locally generated JSON fallback dataset.
-
-If the API is unavailable, the React interface can use:
-
-"web/public/fallback/bootstrap.json"
-
-This enables the pitch demonstration to continue without an active backend connection.
-
----
-
-6. Installation and Setup
-
-Prerequisites
-
-- Python 3.10 or later.
-- pip.
-- Git.
-
-Clone the Repository
-
-git clone <repository-url>
+Process-stage analysis requires stage-level measurements. Whole-factory
+inputs are not arbitrarily distributed across individual process stages.
+
+## What makes it different?
+
+### 1. Traceability by design
+
+The intended traceability layer connects each reported result to:
+
+-   The source activity record and reporting period.
+-   The quantity and unit used.
+-   The emission factor and its source reference.
+-   Any unit conversion or calculation step.
+-   The formula and resulting value.
+-   Provenance, assumptions, and data-quality warnings.
+-   The calculation snapshot and engine version.
+
+This is a software traceability approach---not a claim of blockchain or
+tamper-proof storage.
+
+### 2. Transparent calculations
+
+  -----------------------------------------------------------------------------------------------------------
+  Indicator                           Formula
+  ----------------------------------- -----------------------------------------------------------------------
+  Emissions                           `Activity Data × Emission Factor`
+
+  Energy intensity                    `Energy consumed ÷ Production`
+
+  Emissions intensity                 `Assessed emissions ÷ Production`
+
+  Period change                       `(Current intensity − Previous intensity) ÷ Previous intensity × 100`
+  -----------------------------------------------------------------------------------------------------------
+
+For example, electricity emissions require electricity consumption and a
+factor expressed in compatible units, such as `kg CO₂e/kWh`. Results
+should retain calculation precision internally and apply rounding only
+for display.
+
+### 3. A Decision Support System---not just a calculator
+
+CarbonOS Sugar is intended to connect accounting with operational
+interpretation:
+
+-   **Performance indicators:** energy and emissions intensity where
+    production data is available.
+-   **Data-quality alerts:** missing values, incompatible units, or
+    unsupported categories.
+-   **Anomaly screening:** transparent checks against historical or
+    defined reference values.
+-   **Recommendations:** potential actions accompanied by evidence,
+    assumptions, verification steps, and additional data requirements.
+
+Recommendations are decision-support prompts, not guaranteed savings or
+automated engineering instructions.
+
+## Planned outputs
+
+-   Factory carbon dashboard.
+-   Category-wise emissions inventory.
+-   Energy-performance indicators.
+-   Data-quality and unresolved-category report.
+-   Emission-factor register.
+-   Anomaly flags and review prompts.
+-   Evidence-linked improvement recommendations.
+-   Calculation history and traceability view.
+-   Downloadable reports or data exports.
+
+Output availability depends on the implementation stage and the quality
+and completeness of supplied data.
+
+## Calculation integrity and data policy
+
+CarbonOS Sugar follows a conservative accounting approach:
+
+-   **No silent zeroes:** missing data or factors do not become zero
+    emissions.
+-   **No unsupported factors:** each factor should have a value, unit,
+    geography, applicable period, source, and review status.
+-   **Clear provenance:** distinguish user-provided data, published
+    factors, derived values, synthetic examples, and unknown
+    information.
+-   **Visible limitations:** partial assessments are labelled as partial
+    when categories remain unresolved.
+-   **Separate biogenic treatment:** bagasse-related biogenic CO₂ is
+    distinguished from fossil emissions, with non-CO₂ treatment
+    documented according to the selected method.
+-   **No invented allocation:** product or process-stage allocation is
+    not performed without a defensible method and supporting data.
+-   **Versioned results:** changes to inputs or factors should create a
+    new calculation snapshot rather than silently rewriting historical
+    results.
+
+### Reference frameworks and data sources
+
+These are starting points for selecting and documenting methods and
+emission factors. A reference is not, by itself, proof that a particular
+factor is applicable.
+
+-   [Central Electricity Authority (CEA) --- CO₂ Baseline
+    Database](https://cea.nic.in/cdm-co2-baseline-database/?lang=en)
+-   [GHG Protocol](https://ghgprotocol.org/)
+-   [IPCC Emission Factor
+    Database](https://www.ipcc-nggip.iges.or.jp/EFDB/main.php)
+-   [India GHG Program --- Calculation
+    Tools](https://indiaghgp.org/calculation-tools)
+-   [TERI --- Indian sugar-sector
+    report](https://www.teriin.org/sites/default/files/2021-08/Sugar_Report.pdf)
+
+Before operational use, each selected factor must be checked for its
+value, units, geography, year, gases covered, system boundary, source
+location, and applicability.
+
+## Prototype technology
+
+The rapid-prototype direction is intentionally lightweight:
+
+  -----------------------------------------------------------------------
+  Layer                   Proposed technology     Role
+  ----------------------- ----------------------- -----------------------
+  User interface          Streamlit               Data entry, uploads,
+                                                  dashboards, and review
+                                                  screens
+
+  Calculation logic       Python                  Unit-aware calculations
+                                                  and validation
+
+  Data handling           pandas                  Structured
+                                                  activity-data
+                                                  processing
+
+  Persistence             SQLite                  Prototype records and
+                                                  calculation history
+
+  Quality assurance       pytest                  Calculation,
+                                                  validation, import, and
+                                                  traceability tests
+  -----------------------------------------------------------------------
+
+The calculation engine is intended to remain separate from the user
+interface so it can later support a larger architecture, such as
+React/Vite, FastAPI, and PostgreSQL.
+
+## Suggested repository structure
+
+``` text
+carbonos-sugar/
+├── app.py
+├── calculations.py
+├── database.py
+├── imports.py
+├── seed_data.py
+├── reporting.py
+├── requirements.txt
+├── README.md
+├── METHODOLOGY.md
+├── sample_data/
+│   └── demo_activities.csv
+└── tests/
+    ├── test_calculations.py
+    ├── test_validation.py
+    ├── test_traceability.py
+    └── test_imports.py
+```
+
+The actual repository may differ as implementation evolves.
+
+## Getting started
+
+### Prerequisites
+
+-   Python 3.10 or later
+-   Git
+-   pip
+
+### 1. Clone the repository
+
+``` bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
 cd carbonos-sugar
+```
 
-Create a Virtual Environment
+### 2. Create and activate a virtual environment
 
+**Windows**
+
+``` bash
 python -m venv .venv
+.venv\Scripts\activate
+```
 
-Activate it:
+**macOS / Linux**
 
-Windows PowerShell
-
-.venv\Scripts\Activate.ps1
-
-Linux / macOS
-
+``` bash
+python -m venv .venv
 source .venv/bin/activate
+```
 
-Install Dependencies
+### 3. Install dependencies
 
+``` bash
 pip install -r requirements.txt
+```
 
-Run Automated Tests
+### 4. Run the application
 
-pytest
-
-Launch the Application
-
+``` bash
 streamlit run app.py
+```
 
-The default database is "carbonos.db" in the working directory.
+If the repository uses a different entry point, follow the run command
+documented in its application configuration.
 
-To specify a different database location:
+## Demo data and responsible interpretation
 
-CARBONOS_DB=/path/file.db
+A demonstration may use synthetic factory records to show the end-to-end
+workflow. Synthetic data is useful for testing the interface and
+calculation pipeline, but it is not evidence of actual mill performance.
 
----
+For example:
 
-7. Demonstration Environment
+`12,500 kWh × 0.70 kg CO₂e/kWh = 8,750 kg CO₂e`
 
-CarbonOS Sugar includes a synthetic demonstration dataset to showcase the complete workflow.
+This is only a mathematical demonstration. The factor shown is
+**synthetic and illustrative**, not a verified current Indian grid
+emission factor. It must not be used for real disclosures, compliance,
+investment decisions, or sustainability claims.
 
-Loading Demo Data
+## Current scope and limitations
 
-From the application:
+CarbonOS Sugar is a prototype and pilot concept. It is designed to
+demonstrate a practical approach to factory-level carbon accounting and
+energy decision support.
 
-Setup → Load Synthetic Demo Dataset
+Do not assume the following unless separately implemented and validated:
 
-Select Skip current-period records if you want to demonstrate the CSV import workflow independently.
+-   Complete emissions coverage for every sugar-mill activity.
+-   A verified partnership with or deployment at a specific factory.
+-   Independently validated emissions or energy savings.
+-   Certified carbon accounting or regulatory compliance.
+-   Product-level footprints or allocation across sugar, ethanol,
+    molasses, bagasse, and exported electricity.
+-   Predictive AI or guaranteed optimisation outcomes.
 
-Alternatively, run:
+A real pilot requires factory access, source records, agreement on the
+organisational and operational boundary, and review of the selected
+calculation methods and factors.
 
-python seed_data.py
+## Roadmap
 
-To skip current-period records:
+-   [ ] Complete the core activity-data and factor data model.
+-   [ ] Support manual entry and CSV ingestion through a common
+    validation pipeline.
+-   [ ] Implement unit-aware calculations for supported categories.
+-   [ ] Add calculation snapshots and source-to-result traceability.
+-   [ ] Build factory-level emissions and energy dashboards.
+-   [ ] Add transparent data-quality and anomaly checks.
+-   [ ] Generate evidence-linked recommendations and exports.
+-   [ ] Validate the workflow with real factory records and domain
+    review.
+-   [ ] Expand category coverage as suitable data and methods become
+    available.
 
-python seed_data.py --no-current-records
+## Project vision
 
-Demonstration Calculation
+**Make industrial carbon accounting understandable, traceable, and
+useful for everyday operational decisions.**
 
-The following example illustrates how the calculation engine processes fictional operational records.
+CarbonOS Sugar aims to help sugar mills move from scattered operational
+records to a clearer picture of energy use and emissions---while keeping
+the evidence and limitations visible at every step.
 
-Activity| Quantity| Illustrative Factor| Emissions
-Grid Electricity| 46,000 kWh| 0.70 kg CO₂e/kWh| 32,200 kg
-Diesel| 800 + 750 + 900 L| 2.50 kg CO₂e/L| 6,125 kg
-Total| | | 38,325 kg
+------------------------------------------------------------------------
 
-Assessed Partial Total: 38.325 t CO₂e
-
-These values are strictly fictional and use illustrative emission factors. They must not be interpreted as actual sugar-mill emissions or verified environmental performance.
-
-Generated demonstration exports are available in:
-
-"sample_data/exports/"
-
----
-
-8. CSV Data Integration
-
-The platform supports structured CSV imports for operational activity records.
-
-Supported Format
-
-activity_date,category,activity_name,quantity,unit,source_reference,provenance,notes
-2026-01-01,purchased_electricity,Grid electricity,12500,kWh,DEMO-BILL-001,synthetic_demo,Fictional demonstration record
-
-Required Fields
-
-- "activity_date"
-- "category"
-- "activity_name"
-- "quantity"
-- "unit"
-- "provenance"
-
-Supported Provenance Values
-
-Provenance| Description
-user_provided| Data entered or supplied by a user
-synthetic_demo| Artificial data generated for demonstration
-unknown| Data whose origin has not been established
-
-Supported activity categories and units are documented in "METHODOLOGY.md" and displayed on the CSV import screen.
-
-The file "sample_data/demo_activities_with_errors.csv" demonstrates the platform's validation and rejection mechanisms.
-
----
-
-9. Methodology and Emission Factor Policy
-
-The detailed methodology, calculation boundaries, supported categories, data provenance rules, and factor-handling policies are documented in:
-
-"METHODOLOGY.md"
-
-The current prototype does not bundle independently verified real-world emission factors.
-
-Potential starting points for sourcing and reviewing factors include:
-
-- Central Electricity Authority (CEA) CO₂ Baseline Database.
-- TERI research publications on the Indian sugar industry.
-- GHG Protocol accounting and reporting guidance.
-
-These references are starting points for research and factor verification, not automatic validation of any particular emission-factor value.
-
-Actual reporting requires appropriate source selection, verification, documentation, and applicability assessment.
-
----
-
-10. Pitch Demonstration Interface
-
-The judge-facing demonstration interface is available in the "web/" directory.
-
-It uses a modern frontend architecture built with:
-
-- React and TypeScript.
-- Vite.
-- Tailwind CSS.
-- Framer Motion.
-- Recharts.
-- cmdk.
-
-The frontend communicates with "api/server.py", which provides a FastAPI interface to the existing Python calculation engine.
-
-Quick Start
-
-Install the complete environment:
-
-npm run setup
-
-Launch the demonstration:
-
-npm run demo
-
-Open:
-
-"http://127.0.0.1:5173"
-
-Additional Commands
-
-Regenerate the offline fallback:
-
-npm run fallback
-
-Run end-to-end tests:
-
-npm run test:e2e
-
-Run the end-to-end test suite 10 consecutive times:
-
-npm run test:e2e:10
-
-Run the full 90-second demonstration tour test:
-
-FULL_TOUR=1 npm run test:e2e
-
-The Playwright test workflow resets the demonstration environment before execution and checks for browser console errors.
-
-Demonstration Controls
-
-Fictional Demo Factor
-
-The demonstration includes an option to add a fictional, explicitly unsourced emission factor for the mill/coal data gap. This illustrates how an unresolved calculation can become assessable when a factor is supplied.
-
-This is a demonstration-only operation and does not establish the validity of the factor.
-
-Reset Demo
-
-The demonstration can be restored to its initial state using:
-
-- Data Room → Reset Demo.
-- "Ctrl + K" or "Cmd + K".
-
-Pitch Configuration
-
-Presentation budget figures are sourced exclusively from:
-
-"pitch.config.json"
-
-The current pitch configuration uses ₹60,000, whereas an earlier research deck referenced ₹30,000.
-
-Set:
-
-{
-  "showReconcileNote": true
-}
-
-to display a presenter-facing reconciliation warning on the Ask screen.
-
----
-
-11. Current Limitations
-
-CarbonOS Sugar is an early-stage prototype. Its present scope is intentionally limited.
-
-Validation and Deployment
-
-- Not validated in an operating sugar mill.
-- No industrial implementation partner.
-- Not independently verified or certified.
-- No real-world operational performance claims.
-
-Accounting Scope
-
-- Bagasse and biogenic emissions treatment not implemented.
-- Wastewater emissions not implemented.
-- By-product allocation not implemented.
-- Product carbon footprints not implemented.
-- Scope 3 accounting not implemented.
-- No complete lifecycle assessment.
-
-Technical Scope
-
-- Single-user local SQLite architecture.
-- Audit history is not tamper-proof.
-- No production-grade multi-user infrastructure.
-- No direct integration with industrial meters or ERP systems.
-
----
-
-12. Development Roadmap
-
-The following capabilities represent planned future development and are not part of the current implementation.
-
-Development Area| Planned Enhancement
-Emission Factors| Verified India-specific emission-factor library
-By-product Accounting| Ethanol, jaggery, molasses and other product allocation
-Biogenic Emissions| Bagasse and biogenic carbon accounting
-Wastewater| Wastewater treatment and associated emissions
-Data Integration| Industrial sub-meter and operational data integration
-Infrastructure| Migration to React, FastAPI and PostgreSQL
-Validation| Field testing and collaboration with partner sugar mills
-
-The long-term objective is to evolve CarbonOS from a demonstrative accounting workflow into a scalable industrial sustainability intelligence platform.
-
----
-
-13. Research and Development Positioning
-
-CarbonOS Sugar demonstrates a practical approach to connecting industrial activity data, carbon accounting, energy-performance indicators, and audit traceability.
-
-Its primary technical contribution is not simply calculating an emissions total, but preserving the relationship between reported results and the underlying evidence.
-
-The prototype explores three important principles:
-
-1. Evidence-Driven Accounting: Every calculated result should have an identifiable source and documented calculation methodology.
-2. Transparent Uncertainty: Missing information and unsupported calculations should remain visible rather than being silently interpreted as zero.
-3. Reproducible Reporting: Calculation snapshots should preserve the inputs, factors, and engine information needed to review and reproduce historical results.
-
----
-
-14. License
-
-No open-source license has been selected for this repository yet.
-
----
-
-15. Project Status
-
-Current Stage: Functional Prototype / Pitch Demonstration
-
-Implementation: Core features implemented and covered by automated tests.
-
-Industrial Validation: Pending.
-
-Independent Verification: Not performed.
-
-Certification: Not obtained.
-
-Demo Video: Not yet recorded.
-
----
-
-CarbonOS Sugar
-
-Making Industrial Carbon Data Traceable, Transparent, and Actionable.
+::: {align="center"}
+**CarbonOS Sugar**\
+*Measure clearly. Trace every result. Support better decisions.*
+:::
