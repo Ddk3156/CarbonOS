@@ -1,4 +1,3 @@
-::: {align="center"}
 # 🌱 CarbonOS Sugar
 
 ### A Decision Support System for Traceable Carbon Accounting in Sugar Mills
